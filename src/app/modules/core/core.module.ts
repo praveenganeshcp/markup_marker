@@ -13,10 +13,11 @@ import { EditWidgetPropsComponent } from './components/edit-widget-props/edit-wi
 import { WidgetsListComponent } from './components/widgets-list/widgets-list.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { CounterComponent } from './components/counter/counter.component';
+import { WidgetMenuComponent } from './components/widget-menu/widget-menu.component';
 
 
 @NgModule({
-  declarations: [BuilderComponent, ColouredPropsFormComponent, BorderstyledPropsFormComponent, MeasurementPropsFormComponent, PaddingPropsFormComponent, FontMeasuredPropsFormComponent, FlexContainerPropsFormComponent, EditWidgetPropsComponent, WidgetsListComponent, TopBarComponent, CounterComponent],
+  declarations: [BuilderComponent, ColouredPropsFormComponent, BorderstyledPropsFormComponent, MeasurementPropsFormComponent, PaddingPropsFormComponent, FontMeasuredPropsFormComponent, FlexContainerPropsFormComponent, EditWidgetPropsComponent, WidgetsListComponent, TopBarComponent, CounterComponent, WidgetMenuComponent],
   imports: [
     CommonModule,
     CoreRoutingModule
