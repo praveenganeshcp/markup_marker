@@ -36,6 +36,7 @@ html, body {
 }
 .edit-props-form__header {
     font-size: 1.3em;
+    padding-left: 3%;
 }
 .edit-props-form__fields {
     flex-wrap: wrap;
@@ -66,4 +67,11 @@ html, body {
         font-size: 1em;
         padding: 5%;
     }
+}
+.transparent {
+    font-size: 1.2em;
+    background-color: rgb(255, 255, 255, 0);
+    color: white;
+    border: none;
+    font-weight: 700;
 }
