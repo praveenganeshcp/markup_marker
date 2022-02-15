@@ -18,4 +18,8 @@ export class AppComponent implements AfterViewInit {
     this.contextMenuService.setHost(this.contextMenuHost.nativeElement);
     this.contextMenuService.setContainerRef(this.contextMenuContainer);
   }
+
+  close() {
+    this.contextMenuService.close(undefined)
+  }
 }
