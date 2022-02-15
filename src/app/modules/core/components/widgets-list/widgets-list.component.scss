@@ -1,31 +1,30 @@
 .widgets {
     width: 100%;
     height: 100%;
-    background-color: black;
-    color: white;
     padding: 2%;
-    font-size: 1.5em;
+    font-size: 1em;
+    border-left: 1px solid black;
 }
 .widgets__groups {
     margin: 3% 0;
-    border: 1px solid white;
     padding: 3%;
+    summary {
+        cursor: default;
+    }
 }
 .widgets__group {
-    border: 1px solid white;
+    border: 1px solid black;
     border-radius: 5px;
-    background-color: red;
-    padding: 3% 0;
+    padding: 2% 0;
     margin: 3% 0;
 }
 .icon-widget {
     @extend .widgets__group;
     height: 10%;
-    width: 15%;
-    background-color: black;
+    width: 20%;
     border: none;
     span {
-        font-size: 1.5em;
+        font-size: 3em;
     }
 }
 .content-widget {

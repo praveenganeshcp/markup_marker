@@ -7,8 +7,11 @@ export class ContextMenuService {
 
   private host: HTMLElement
   private ref: ViewContainerRef;
+  private isOpened: boolean;
   private componentRef: ComponentRef<any>;
-  constructor(private resolver: ComponentFactoryResolver) { }
+  constructor(private resolver: ComponentFactoryResolver) { 
+    this.isOpened = false;
+  }
 
   setHost(host: HTMLElement) {
     this.host = host;
@@ -24,6 +27,7 @@ export class ContextMenuService {
     if(! this.ref) {
       throw new Error("Ref is not initialized");
     }
+    this.isOpened = true;
     this.ref.clear();
     this.host.style.left = left+'px';
     this.host.style.top = top+'px';
@@ -40,6 +44,10 @@ export class ContextMenuService {
   }
 
   close(data:any) {
+    if(!this.isOpened) {
+      return;
+    }
+    this.isOpened = false;
     this.componentRef.instance.output.emit(data);
     this.host.style.left = 0+'px';
     this.host.style.top = 0+'px';
