@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ContextMenuService } from 'src/app/modules/shared/services/context-menu/context-menu.service';
+import { WidgetMenuComponent } from '../../components/widget-menu/widget-menu.component';
 
 @Component({
   selector: 'app-builder',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuilderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private contextMenuService: ContextMenuService) { }
 
   ngOnInit(): void {
+  }
+
+  onContextMenu(event) {
+    event.preventDefault();
+    console.log(event.target);
+    this.contextMenuService.open(WidgetMenuComponent, event.clientX, event.clientY)
+    this.contextMenuService.afterClosed().subscribe(console.log)
   }
 
 }

@@ -3,8 +3,8 @@
         <app-top-bar></app-top-bar>
     </header>
     <section class="builder__core flex">
-        <section class="builder__placeholder">
-
+        <section (contextmenu)="onContextMenu($event)" class="builder__placeholder flex">
+            <button>click me</button>
         </section>
         <aside class="builder__widgets-list">
             <app-widgets-list></app-widgets-list>
