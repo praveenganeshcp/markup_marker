@@ -13,11 +13,16 @@ export class WidgetMenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  close() {
-    this.contextMenuService.close('Hello');
+  copy() {
+    this.contextMenuService.close('copy');
   }
 
-  test() {
+  edit() {
+    this.contextMenuService.close('edit');
   }
 
+  remove() {
+    this.contextMenuService.close('delete');
+  }
+ 
 }

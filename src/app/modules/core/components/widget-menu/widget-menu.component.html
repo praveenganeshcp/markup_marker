@@ -1,2 +1,20 @@
-<p (click)="test()" class="test">widget-menu works!</p>
-<button (click)="close()">close</button>
+<section class="context-menu">
+    <section (click)="edit()" class="context-menu__option flex start">
+        <span class="material-icons">
+            edit
+        </span>
+        <button>Edit</button>
+    </section>
+    <section (click)="copy()" class="context-menu__option flex start">
+        <span class="material-icons">
+            content_copy
+        </span>
+        <button>Copy</button>
+    </section>
+    <section (click)="remove()" class="context-menu__option flex start">
+        <span class="material-icons">
+            delete
+        </span>
+        <button>Delete</button>
+    </section>
+</section>
