@@ -27,7 +27,6 @@ export class ContextMenuService {
     if(! this.ref) {
       throw new Error("Ref is not initialized");
     }
-    this.isOpened = true;
     this.ref.clear();
     this.host.style.left = left+'px';
     this.host.style.top = top+'px';
@@ -37,6 +36,7 @@ export class ContextMenuService {
     const factory = this.resolver.resolveComponentFactory(component);
     this.componentRef = this.ref.createComponent(factory);
     this.componentRef.instance.output = new EventEmitter<any>();
+    this.isOpened = true;
   }
 
   afterClosed() {
@@ -47,7 +47,6 @@ export class ContextMenuService {
     if(!this.isOpened) {
       return;
     }
-    this.isOpened = false;
     this.componentRef.instance.output.emit(data);
     this.host.style.left = 0+'px';
     this.host.style.top = 0+'px';
@@ -56,5 +55,6 @@ export class ContextMenuService {
     this.host.style.backgroundColor = 'blue';
     this.componentRef.destroy();
     this.ref.clear();
+    this.isOpened = false;
   }
 }

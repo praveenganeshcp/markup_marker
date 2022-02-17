@@ -1,9 +1,58 @@
-import { Injectable } from '@angular/core';
+import { ComponentFactoryResolver, ComponentRef, EventEmitter, Injectable, ViewContainerRef } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DialogService {
 
-  constructor() { }
+  private ref: ViewContainerRef;
+  private host: HTMLElement;
+  private rootHost: HTMLElement;
+  private componentRef: ComponentRef<any>;
+  private isOpened: boolean;
+  constructor(private componentFactoryResolver: ComponentFactoryResolver) { 
+    this.isOpened = false;
+  }
+
+  setRef(ref: ViewContainerRef) {
+    this.ref = ref;
+    console.log(ref);
+  }
+
+  setRootHost(rootHost: HTMLElement) {
+    this.rootHost = rootHost;
+  }
+
+  setHost(host: HTMLElement) {
+    this.host = host;
+    console.log(host);
+  }
+
+  open(component: any, height: number, width: number) {
+    this.ref.clear();
+    this.host.style.height = height+'%';
+    this.host.style.width = width+'%';
+    const factory = this.componentFactoryResolver.resolveComponentFactory(component);
+    this.componentRef = this.ref.createComponent(factory);
+    this.componentRef.instance.output = new EventEmitter<any>();
+    this.isOpened = true;
+  }
+
+  afterClosed() {
+    return this.componentRef.instance.output;
+  }
+
+  close(data: any) {
+    if(!this.isOpened) {
+      return;
+    }
+    this.host.style.height = 0+'%';
+    this.host.style.width = 0+'%';
+    this.rootHost.style.height = 0+'%';
+    this.rootHost.style.width = 0+'%';
+    this.componentRef.instance.output.emit(data);
+    this.componentRef?.destroy();
+    this.ref.clear()
+    this.isOpened = false;
+  }
 }

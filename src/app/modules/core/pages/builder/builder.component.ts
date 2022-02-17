@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContextMenuService } from 'src/app/modules/shared/services/context-menu/context-menu.service';
+import { DialogService } from 'src/app/modules/shared/services/dialog/dialog.service';
+import { CodeOutputComponent } from '../../components/code-output/code-output.component';
 import { WidgetMenuComponent } from '../../components/widget-menu/widget-menu.component';
 
 @Component({
@@ -9,9 +11,11 @@ import { WidgetMenuComponent } from '../../components/widget-menu/widget-menu.co
 })
 export class BuilderComponent implements OnInit {
 
-  constructor(private contextMenuService: ContextMenuService) { }
+  constructor(private contextMenuService: ContextMenuService, private dialogService: DialogService) { }
 
   ngOnInit(): void {
+    this.dialogService.open(CodeOutputComponent, 40, 40);
+    this.dialogService.afterClosed().subscribe(console.log)
   }
 
   onContextMenu(event) {

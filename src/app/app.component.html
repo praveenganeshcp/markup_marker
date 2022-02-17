@@ -1,6 +1,11 @@
-<main (click)="close()" class="app-shell">
+<main (click)="closeAllPopups()" class="app-shell">
     <div #contextMenuHost class="context-menu">
         <ng-template #contextMenu></ng-template>
+    </div>
+    <div #dialogRootHost class="dialog flex">
+        <div class="dialog-host" #dialogHost>
+            <ng-template #dialog></ng-template>
+        </div>
     </div>
     <router-outlet></router-outlet>
 </main>
