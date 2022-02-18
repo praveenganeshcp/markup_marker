@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ContextMenuService } from 'src/app/modules/shared/services/context-menu/context-menu.service';
 import { DialogService } from 'src/app/modules/shared/services/dialog/dialog.service';
 import { CodeOutputComponent } from '../../components/code-output/code-output.component';
@@ -11,16 +11,31 @@ import { WidgetMenuComponent } from '../../components/widget-menu/widget-menu.co
 })
 export class BuilderComponent implements OnInit {
 
-  constructor(private contextMenuService: ContextMenuService, private dialogService: DialogService) { }
+  private selectedWidget: HTMLElement | null;
+  @ViewChild('builderRoot', {read: ElementRef}) builderRoot: ElementRef;
+
+  constructor(private contextMenuService: ContextMenuService, private dialogService: DialogService) { 
+    this.selectedWidget = null;
+  }
 
   ngOnInit(): void {
-    this.dialogService.open(CodeOutputComponent, 40, 40);
-    this.dialogService.afterClosed().subscribe(console.log)
+  }
+
+  setSelectedWidget(element: HTMLElement) {
+    this.selectedWidget = element;
+  }
+
+  getSelectedWidget() {
+    return this.selectedWidget;
+  }
+
+  onWidgetSelect(event) {
+    event.preventDefault();
+  
   }
 
   onContextMenu(event) {
     event.preventDefault();
-    console.log(event.target);
     this.contextMenuService.open(WidgetMenuComponent, event.clientX, event.clientY)
     this.contextMenuService.afterClosed().subscribe(console.log)
   }

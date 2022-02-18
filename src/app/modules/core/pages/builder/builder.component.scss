@@ -13,8 +13,14 @@
 .builder__placeholder {
     height: 100%;
     width: 85%;
+    padding: 2%;
 }
 .builder__widgets-list {
     height: 100%;
     width: 15%;
+}
+.builder-root {
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
 }
