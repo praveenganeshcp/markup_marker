@@ -1,4 +1,5 @@
 export class Widget {
+    [x: string]: any;
 
     private element: HTMLElement;
 

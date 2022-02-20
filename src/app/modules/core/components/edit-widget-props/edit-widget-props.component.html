@@ -16,6 +16,6 @@
         <app-borderstyled-props-form></app-borderstyled-props-form>
     </section>
     <section class="edit-props__form" *ngIf="isContainerStyleable()">
-        <app-flex-container-props-form></app-flex-container-props-form>
+        <app-flex-container-props-form [styleProps]="builderService?.getEditWidget()?.getContainerStyles()"></app-flex-container-props-form>
     </section>
 </section>

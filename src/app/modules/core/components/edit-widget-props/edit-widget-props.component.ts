@@ -8,7 +8,7 @@ import { BuilderService } from '../../services/builder/builder.service';
 })
 export class EditWidgetPropsComponent implements OnInit {
 
-  constructor(private builderService: BuilderService) { }
+  constructor(public builderService: BuilderService) { }
 
   ngOnInit(): void {}
 
