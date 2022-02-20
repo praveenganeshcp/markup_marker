@@ -28,7 +28,7 @@ export class BuilderComponent implements OnInit, AfterViewInit {
   setSelectedWidget(element: Widget) {
     this.selectedWidget?.removeOutline();
     this.selectedWidget = element;
-    this.selectedWidget.addOutline();
+    this.selectedWidget?.addOutline();
   }
 
   getSelectedWidget() {
@@ -44,10 +44,28 @@ export class BuilderComponent implements OnInit, AfterViewInit {
     this.setSelectedWidget(this.widgetResolver.resolve(event.target));
   }
 
+  showEditWidgetMenu() {
+    return this.builderService.getEditWidget() !== null;
+  }
+
   onContextMenu(event) {
     event.preventDefault();
     this.contextMenuService.open(WidgetMenuComponent, event.clientX, event.clientY)
-    this.contextMenuService.afterClosed().subscribe(console.log)
+    const widget = this.widgetResolver.resolve(event.target);
+    this.contextMenuService.afterClosed().subscribe(
+      (userChoice: string) => {
+        console.log(userChoice);
+        if(userChoice === 'copy') {
+          widget.copy();
+        }
+        else if(userChoice === 'remove') {
+          widget.delete();
+        }
+        else if(userChoice === 'edit') {
+          this.builderService.setEditWidget(widget);
+        }
+      }
+    )
   }
 
 }

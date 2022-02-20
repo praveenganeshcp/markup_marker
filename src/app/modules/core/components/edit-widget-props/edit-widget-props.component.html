@@ -1,20 +1,20 @@
 <section class="edit-props">
-    <section class="edit-props__form">
+    <section class="edit-props__form" *ngIf="isPaddingStyleable()">
         <app-padding-props-form></app-padding-props-form>
     </section>
-    <section class="edit-props__form">
+    <section class="edit-props__form" *ngIf="isFontMeasureable()">
         <app-font-measured-props-form></app-font-measured-props-form>
-    </section>
-    <section class="edit-props__form">
+    </section> 
+    <section class="edit-props__form" *ngIf="isMeasureable()">
         <app-measurement-props-form></app-measurement-props-form>
     </section>
-    <section class="edit-props__form">
+    <section class="edit-props__form" *ngIf="isColorable()">
         <app-coloured-props-form></app-coloured-props-form>
     </section>
-    <section class="edit-props__form">
+    <section class="edit-props__form" *ngIf="isBorderStyleable()">
         <app-borderstyled-props-form></app-borderstyled-props-form>
     </section>
-    <section class="edit-props__form">
+    <section class="edit-props__form" *ngIf="isContainerStyleable()">
         <app-flex-container-props-form></app-flex-container-props-form>
     </section>
 </section>

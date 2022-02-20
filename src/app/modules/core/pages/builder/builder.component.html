@@ -9,8 +9,8 @@
             </section>
         </section>
         <aside class="builder__widgets-list">
-            <app-widgets-list (createWidget)="createWidget($event)"></app-widgets-list>
-            <!-- <app-edit-widget-props></app-edit-widget-props> -->
+            <app-widgets-list *ngIf="!showEditWidgetMenu()" (createWidget)="createWidget($event)"></app-widgets-list>
+            <app-edit-widget-props *ngIf="showEditWidgetMenu()"></app-edit-widget-props>
         </aside>
     </section>
 </main>

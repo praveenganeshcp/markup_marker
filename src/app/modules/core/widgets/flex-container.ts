@@ -1,4 +1,5 @@
 import { Widget } from ".";
+import { BorderStyleable } from "../mixins/border-styleable";
 import { Measurable } from "../mixins/measurable";
 import { applyMixins } from "../utils/apply-mixins";
 
@@ -8,4 +9,4 @@ export class FlexContainerWidget extends Widget {
     }
 }
 
-applyMixins(FlexContainerWidget, [Measurable]);
+applyMixins(FlexContainerWidget, [Measurable, BorderStyleable]);

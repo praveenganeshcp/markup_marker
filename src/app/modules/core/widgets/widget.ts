@@ -43,4 +43,13 @@ export class Widget {
             outlineStyle: 'solid'
         })
     }
+
+    delete() {
+        
+    }
+
+    copy() {
+        const clonedNode = this.getElement().cloneNode(true);
+        this.appendChild(clonedNode as HTMLElement);
+    }
 }

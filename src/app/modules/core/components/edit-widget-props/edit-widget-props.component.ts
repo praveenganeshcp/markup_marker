@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BuilderService } from '../../services/builder/builder.service';
 
 @Component({
   selector: 'app-edit-widget-props',
@@ -7,9 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditWidgetPropsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private builderService: BuilderService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  isMeasureable() {
+    return 'setMeasurableStyles' in this.builderService.getEditWidget();
   }
 
+  isFontMeasureable() {
+    return 'setFontMeasurableStyles' in this.builderService.getEditWidget();
+  }
+
+  isColorable() {
+    return 'setColorStyles' in this.builderService.getEditWidget();
+  }
+
+  isPaddingStyleable() {
+    return 'setPaddingStyles' in this.builderService.getEditWidget();
+  }
+
+  isContainerStyleable() {
+    return 'setContainerStyles' in this.builderService.getEditWidget();
+  }
+
+  isBorderStyleable() {
+    return 'setBorderStyles' in this.builderService.getEditWidget();
+  }
 }
