@@ -35,4 +35,8 @@ export class EditWidgetPropsComponent implements OnInit {
   isBorderStyleable() {
     return 'setBorderStyles' in this.builderService.getEditWidget();
   }
+  
+  close() {
+    this.builderService.setEditWidget(null);
+  }
 }
