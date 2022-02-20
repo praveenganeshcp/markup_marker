@@ -3,16 +3,16 @@ import { BuilderService } from "../services/builder/builder.service";
 
 type FontMeasurableStyleDeclaration = Pick<CSSStyleDeclaration, 'fontSize' | 'fontWeight'>
 
-@Injectable()
 export class FontMeasurable {
+    [x: string]: any;
 
-    constructor(private builderService: BuilderService) {}
+    constructor() {}
 
     setFontMeasurableStyles(styleProps: FontMeasurableStyleDeclaration) {
-        this.builderService.getEditWidget().applyStyles(styleProps);
+        this?.applyStyles(styleProps);
     }
     getFontMeasurableStyles(): FontMeasurableStyleDeclaration {
-        const { fontSize, fontWeight } = this.builderService.getEditWidget().getStyles();
+        const { fontSize, fontWeight } = this?.getStyles();
         return { fontSize, fontWeight };
     }
 }

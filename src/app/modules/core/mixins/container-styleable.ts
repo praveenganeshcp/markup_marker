@@ -3,17 +3,16 @@ import { BuilderService } from "../services/builder/builder.service";
 
 type ContainerStyleableStyleDeclaration = Pick<CSSStyleDeclaration, 'alignItems' | 'justifyContent'>
 
-
-@Injectable()
 export class ContainerStyleable {
-    constructor(private builder: BuilderService) {}
+    [x: string]: any;
+    constructor() {}
 
     setContainerStyles(styleProps: ContainerStyleableStyleDeclaration) {
-        this.builder.getEditWidget().applyStyles(styleProps);
+        this?.applyStyles(styleProps);
     }
 
     getContainerStyles(): ContainerStyleableStyleDeclaration {
-        const { alignItems, justifyContent } = this.builder.getEditWidget().getStyles();
+        const { alignItems, justifyContent } = this?.getStyles();
         return { alignItems, justifyContent }
     }
 }

@@ -3,17 +3,16 @@ import { BuilderService } from "../services/builder/builder.service";
 
 type PaddingStyleableStyleDeclaration = Pick<CSSStyleDeclaration, 'paddingLeft' | 'paddingRight' | 'paddingBottom' | 'paddingTop'>
 
-
-@Injectable()
 export class PaddingStyleable {
-    constructor(private builder: BuilderService) {}
+    [x: string]: any;
+    constructor() {}
 
     setPaddingStyles(styleProps: PaddingStyleableStyleDeclaration) {
-        this.builder.getEditWidget().applyStyles(styleProps);
+        this?.applyStyles(styleProps);
     }
 
     getPaddingStyles(): PaddingStyleableStyleDeclaration {
-        const { paddingLeft, paddingRight, paddingBottom, paddingTop } = this.builder.getEditWidget().getStyles();
+        const { paddingLeft, paddingRight, paddingBottom, paddingTop } = this?.getStyles();
         return { paddingBottom, paddingLeft,paddingRight, paddingTop }
     }
 }

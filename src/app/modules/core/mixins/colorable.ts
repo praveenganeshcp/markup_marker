@@ -3,17 +3,17 @@ import { BuilderService } from "../services/builder/builder.service";
 
 type ColorableStyleDeclaration = Pick<CSSStyleDeclaration, 'color' | 'backgroundColor'>;
 
-@Injectable()
 export class Colorable {
+    [x: string]: any;
     
-    constructor(private builderService: BuilderService) {}
+    constructor() {}
 
     setColorStyles(styleProps: ColorableStyleDeclaration) {
-        this.builderService.getEditWidget().applyStyles(styleProps);
+        this?.applyStyles(styleProps);
     }
 
     getColorStyles(): ColorableStyleDeclaration {
-        const { color, backgroundColor } = this.builderService.getEditWidget().getStyles();
+        const { color, backgroundColor } = this?.getStyles();
         return { color, backgroundColor }
     }
 }

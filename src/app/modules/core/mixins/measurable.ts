@@ -3,16 +3,16 @@ import { BuilderService } from "../services/builder/builder.service";
 
 type MeasurableStyleDeclaration = Pick<CSSStyleDeclaration, 'height' | 'width'>
 
-@Injectable()
 export class Measurable {
+    [x: string]: any;
 
-    constructor(private builderService: BuilderService) {}
+    constructor() {}
 
     setMeasurableStyles(styleProps: MeasurableStyleDeclaration) {
-        this.builderService.getEditWidget().applyStyles(styleProps);
+        this?.applyStyles(styleProps);
     }
     getMeasurableStyles(): MeasurableStyleDeclaration {
-        const { height, width } = this.builderService.getEditWidget().getStyles();
+        const { height, width } = this?.getStyles();
         return { height, width };
     }
 }
