@@ -15,12 +15,10 @@ export class ContextMenuService {
 
   setHost(host: HTMLElement) {
     this.host = host;
-    console.log(this.host)
   }
 
   setContainerRef(ref: ViewContainerRef) {
       this.ref = ref;
-      console.log(ref);
   }
 
   open(component: any, left: number, top: number) {

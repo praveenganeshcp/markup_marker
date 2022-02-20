@@ -16,7 +16,6 @@ export class DialogService {
 
   setRef(ref: ViewContainerRef) {
     this.ref = ref;
-    console.log(ref);
   }
 
   setRootHost(rootHost: HTMLElement) {
@@ -25,7 +24,6 @@ export class DialogService {
 
   setHost(host: HTMLElement) {
     this.host = host;
-    console.log(host);
   }
 
   open(component: any, height: number, width: number) {
