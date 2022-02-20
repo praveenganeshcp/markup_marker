@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { Styleable } from '../../interface/styleable';
 
 @Component({
@@ -7,9 +8,12 @@ import { Styleable } from '../../interface/styleable';
   templateUrl: './flex-container-props-form.component.html',
   styleUrls: ['./flex-container-props-form.component.scss']
 })
-export class FlexContainerPropsFormComponent implements OnInit, Styleable {
+export class FlexContainerPropsFormComponent implements OnInit, Styleable, OnDestroy {
 
   @Input() styleProps: any;
+  @Output() applyStyles = new EventEmitter<Partial<CSSStyleDeclaration>>();
+
+  private valueChangesSubScription: Subscription;
   private styleForm: FormGroup;
 
   public getStyleForm(): FormGroup {
@@ -28,10 +32,17 @@ export class FlexContainerPropsFormComponent implements OnInit, Styleable {
   }
   
   ngOnInit(): void {
-    console.log(this.styleProps);
+    this.getStyleForm().setValue(this.styleProps);
+    this.valueChangesSubScription = this.getStyleForm().valueChanges.subscribe(
+      changes => {
+        this.applyStyles.emit(changes);
+      },
+      console.error
+    )
   }
 
-  saveStyle(): void {
-    throw new Error('Method not implemented.');
+  ngOnDestroy(): void {
+      this.valueChangesSubScription.unsubscribe();
   }
+
 }

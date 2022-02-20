@@ -1,19 +1,20 @@
 <section class="edit-props-form">
     <details class="widgets__groups">
         <summary>Flex Container</summary>
-        <section class="edit-props-form__fields flex start">
+        <section [formGroup]="getStyleForm()" class="edit-props-form__fields flex start">
             <section class="edit-props-form__select-field ">
                 <p>Alignment</p>
-                <select>
-                    <option>start</option>
+                <select formControlName="alignItems">
+                    <option value="start">start</option>
                     <option>center</option>
                     <option>end</option>
                 </select>
             </section>
             <section class="edit-props-form__select-field ">
                 <p>Justification</p>
-                <select>
-                    <option>space between</option>
+                <select formControlName="justifyContent">
+                    <option value="space-between">space between</option>
+                    <option value="space-evenly">space evenly</option>
                 </select>
             </section>
         </section>

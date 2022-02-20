@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { BuilderService } from '../../services/builder/builder.service';
+import { Widget } from '../../widgets';
 
 @Component({
   selector: 'app-edit-widget-props',
@@ -8,35 +9,45 @@ import { BuilderService } from '../../services/builder/builder.service';
 })
 export class EditWidgetPropsComponent implements OnInit {
 
-  constructor(public builderService: BuilderService) { }
+  @Input() editWidget: Widget;
+  @Output() close = new EventEmitter();
+  constructor() { }
 
   ngOnInit(): void {}
 
+  getEditWidget() {
+    return this.editWidget;
+  }
+
+  applyStyles(styles: Partial<CSSStyleDeclaration>) {
+    this.getEditWidget().applyStyles(styles);
+  }
+
   isMeasureable() {
-    return 'setMeasurableStyles' in this.builderService.getEditWidget();
+    return 'setMeasurableStyles' in this.editWidget;
   }
 
   isFontMeasureable() {
-    return 'setFontMeasurableStyles' in this.builderService.getEditWidget();
+    return 'setFontMeasurableStyles' in this.editWidget;
   }
 
   isColorable() {
-    return 'setColorStyles' in this.builderService.getEditWidget();
+    return 'setColorStyles' in this.editWidget;
   }
 
   isPaddingStyleable() {
-    return 'setPaddingStyles' in this.builderService.getEditWidget();
+    return 'setPaddingStyles' in this.editWidget;
   }
 
   isContainerStyleable() {
-    return 'setContainerStyles' in this.builderService.getEditWidget();
+    return 'setContainerStyles' in this.editWidget;
   }
 
   isBorderStyleable() {
-    return 'setBorderStyles' in this.builderService.getEditWidget();
+    return 'setBorderStyles' in this.editWidget;
   }
   
-  close() {
-    this.builderService.setEditWidget(null);
+  closeTab() {
+    this.close.emit();
   }
 }

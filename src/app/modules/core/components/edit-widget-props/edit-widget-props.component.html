@@ -1,5 +1,5 @@
 <section class="edit-props">
-    <button (click)="close()">Close</button>
+    <button (click)="closeTab()">Close</button>
     <section class="edit-props__form" *ngIf="isPaddingStyleable()">
         <app-padding-props-form></app-padding-props-form>
     </section>
@@ -16,6 +16,6 @@
         <app-borderstyled-props-form></app-borderstyled-props-form>
     </section>
     <section class="edit-props__form" *ngIf="isContainerStyleable()">
-        <app-flex-container-props-form [styleProps]="builderService?.getEditWidget()?.getContainerStyles()"></app-flex-container-props-form>
+        <app-flex-container-props-form (applyStyles)="applyStyles($event)" [styleProps]="getEditWidget()?.getContainerStyles()"></app-flex-container-props-form>
     </section>
 </section>

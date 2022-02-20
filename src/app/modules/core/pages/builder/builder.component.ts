@@ -15,10 +15,12 @@ import { Widget } from '../../widgets';
 export class BuilderComponent implements OnInit, AfterViewInit {
 
   private selectedWidget: Widget | null;
+  private editWidget: Widget | null;
   @ViewChild('builderRoot', {read: ElementRef}) builderRoot: ElementRef;
 
-  constructor(private widgetResolver: WidgetResolverService, private builderService: BuilderService, private contextMenuService: ContextMenuService, private dialogService: DialogService) { 
+  constructor(private widgetResolver: WidgetResolverService, private contextMenuService: ContextMenuService, private dialogService: DialogService) { 
     this.setSelectedWidget(null);
+    this.setEditWidget(null);
   }
 
   ngOnInit(): void {}
@@ -35,6 +37,14 @@ export class BuilderComponent implements OnInit, AfterViewInit {
     return this.selectedWidget;
   }
 
+  setEditWidget(widget: Widget | null) {
+    this.editWidget = widget;
+  }
+
+  getEditWidget() {
+    return this.editWidget;
+  }
+
   createWidget(element: HTMLElement) {
     this.getSelectedWidget().appendChild(element);
   }
@@ -45,7 +55,7 @@ export class BuilderComponent implements OnInit, AfterViewInit {
   }
 
   showEditWidgetMenu() {
-    return this.builderService.getEditWidget() !== null;
+    return this.getEditWidget() !== null;
   }
 
   onContextMenu(event) {
@@ -62,7 +72,7 @@ export class BuilderComponent implements OnInit, AfterViewInit {
           widget.delete();
         }
         else if(userChoice === 'edit') {
-          this.builderService.setEditWidget(widget);
+          this.setEditWidget(widget);
         }
       }
     )
