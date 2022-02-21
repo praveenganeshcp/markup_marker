@@ -8,10 +8,14 @@ export class Measurable {
     constructor() {}
 
     setMeasurableStyles(styleProps: MeasurableStyleDeclaration) {
+        styleProps.height += '%';
+        styleProps.width += '%';
         this?.applyStyles(styleProps);
     }
     getMeasurableStyles(): MeasurableStyleDeclaration {
-        const { height, width } = this?.getStyles();
+        let { height, width } = this?.getStyles();
+        height = Number(height.split('%')[0]);
+        width = Number(width.split('%')[0]);
         return { height, width };
     }
 }

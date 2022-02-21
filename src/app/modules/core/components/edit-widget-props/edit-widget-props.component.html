@@ -7,7 +7,7 @@
         <app-font-measured-props-form (applyStyles)="setFontMeasurableStyles($event)" [styleProps]="getEditWidget()?.getFontMeasurableStyles()"></app-font-measured-props-form>
     </section> 
     <section class="edit-props__form" *ngIf="isMeasureable()">
-        <app-measurement-props-form></app-measurement-props-form>
+        <app-measurement-props-form (applyStyles)="setMeasurableStyles($event)" [styleProps]="getEditWidget()?.getMeasurableStyles()"></app-measurement-props-form>
     </section>
     <section class="edit-props__form" *ngIf="isColorable()">
         <app-coloured-props-form></app-coloured-props-form>
