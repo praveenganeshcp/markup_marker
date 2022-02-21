@@ -13,7 +13,7 @@
         <app-coloured-props-form></app-coloured-props-form>
     </section>
     <section class="edit-props__form" *ngIf="isBorderStyleable()">
-        <app-borderstyled-props-form></app-borderstyled-props-form>
+        <app-borderstyled-props-form (applyStyles)="setBorderStyles($event)" [styleProps]="getEditWidget()?.getBorderStyles()"></app-borderstyled-props-form>
     </section>
     <section class="edit-props__form" *ngIf="isContainerStyleable()">
         <app-flex-container-props-form (applyStyles)="setContainerStyles($event)" [styleProps]="getEditWidget()?.getContainerStyles()"></app-flex-container-props-form>
