@@ -27,7 +27,9 @@ export class BuilderComponent implements OnInit, AfterViewInit {
 
   setSelectedWidget(element: Widget) {
     this.selectedWidget?.removeOutline();
+    this.editWidget?.removeOutline();
     this.selectedWidget = element;
+    this.editWidget = null;
     this.selectedWidget?.addOutline();
   }
 
@@ -36,7 +38,11 @@ export class BuilderComponent implements OnInit, AfterViewInit {
   }
 
   setEditWidget(widget: Widget | null) {
+    this.editWidget?.removeOutline();
+    this.selectedWidget?.removeOutline();
     this.editWidget = widget;
+    this.selectedWidget = null;
+    this.editWidget?.addOutline();
   }
 
   getEditWidget() {
