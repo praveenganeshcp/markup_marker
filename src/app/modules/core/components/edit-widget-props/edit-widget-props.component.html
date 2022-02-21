@@ -1,7 +1,7 @@
 <section class="edit-props">
     <button (click)="closeTab()">Close</button>
     <section class="edit-props__form" *ngIf="isPaddingStyleable()">
-        <app-padding-props-form></app-padding-props-form>
+        <app-padding-props-form (applyStyles)="setPaddingStyles($event)" [styleProps]="getEditWidget()?.getPaddingStyles()"></app-padding-props-form>
     </section>
     <section class="edit-props__form" *ngIf="isFontMeasureable()">
         <app-font-measured-props-form (applyStyles)="setFontMeasurableStyles($event)" [styleProps]="getEditWidget()?.getFontMeasurableStyles()"></app-font-measured-props-form>

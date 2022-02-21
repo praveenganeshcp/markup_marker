@@ -33,6 +33,10 @@ export class EditWidgetPropsComponent implements OnInit, OnChanges {
     this.getEditWidget().setContainerStyles(styles);
   }
 
+  setPaddingStyles(styles: Partial<CSSStyleDeclaration>) {
+    this.getEditWidget().setPaddingStyles(styles);
+  }
+
   isMeasureable() {
     return 'setMeasurableStyles' in this.editWidget;
   }

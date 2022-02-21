@@ -7,11 +7,19 @@ export class PaddingStyleable {
     constructor() {}
 
     setPaddingStyles(styleProps: PaddingStyleableStyleDeclaration) {
+        styleProps.paddingBottom += '%';
+        styleProps.paddingLeft += '%';
+        styleProps.paddingRight += '%';
+        styleProps.paddingTop += '%';
         this?.applyStyles(styleProps);
     }
 
     getPaddingStyles(): PaddingStyleableStyleDeclaration {
-        const { paddingLeft, paddingRight, paddingBottom, paddingTop } = this?.getStyles();
+        let { paddingLeft, paddingRight, paddingBottom, paddingTop } = this?.getStyles();
+        paddingLeft = Number(paddingLeft.split('%')[0]);
+        paddingRight = Number(paddingRight.split('%')[0]);
+        paddingBottom = Number(paddingBottom.split('%')[0]);
+        paddingTop = Number(paddingTop.split('%')[0]);
         return { paddingBottom, paddingLeft,paddingRight, paddingTop }
     }
 }
