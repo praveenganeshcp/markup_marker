@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { BuilderService } from './builder.service';
+import { HtmlResolverService } from './html-resolver.service';
 
-describe('BuilderService', () => {
-  let service: BuilderService;
+describe('HtmlResolverService', () => {
+  let service: HtmlResolverService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(BuilderService);
+    service = TestBed.inject(HtmlResolverService);
   });
 
   it('should be created', () => {
