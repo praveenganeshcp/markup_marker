@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { BuilderService } from '../../services/builder/builder.service';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges } from '@angular/core';
 import { Widget } from '../../widgets';
 
 @Component({
@@ -7,7 +6,7 @@ import { Widget } from '../../widgets';
   templateUrl: './edit-widget-props.component.html',
   styleUrls: ['./edit-widget-props.component.scss']
 })
-export class EditWidgetPropsComponent implements OnInit {
+export class EditWidgetPropsComponent implements OnInit, OnChanges {
 
   @Input() editWidget: Widget;
   @Output() close = new EventEmitter();
@@ -15,12 +14,23 @@ export class EditWidgetPropsComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  ngOnChanges(changes: SimpleChanges): void {
+    const editWidgetChange: SimpleChange = changes.editWidget;
+    if(!editWidgetChange.firstChange) {
+      this.editWidget = editWidgetChange.currentValue;
+    }
+  }
+
   getEditWidget() {
     return this.editWidget;
   }
 
-  applyStyles(styles: Partial<CSSStyleDeclaration>) {
-    this.getEditWidget().applyStyles(styles);
+  setFontMeasurableStyles(styles: Partial<CSSStyleDeclaration>) {
+    this.getEditWidget().setFontMeasurableStyles(styles);
+  }
+
+  setContainerStyles(styles: Partial<CSSStyleDeclaration>) {
+    this.getEditWidget().setContainerStyles(styles);
   }
 
   isMeasureable() {

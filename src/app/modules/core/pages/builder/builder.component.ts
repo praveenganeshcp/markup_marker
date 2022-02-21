@@ -1,9 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ContextMenuService } from 'src/app/modules/shared/services/context-menu/context-menu.service';
 import { DialogService } from 'src/app/modules/shared/services/dialog/dialog.service';
-import { CodeOutputComponent } from '../../components/code-output/code-output.component';
 import { WidgetMenuComponent } from '../../components/widget-menu/widget-menu.component';
-import { BuilderService } from '../../services/builder/builder.service';
 import { WidgetResolverService } from '../../services/widget-resolver/widget-resolver.service';
 import { Widget } from '../../widgets';
 

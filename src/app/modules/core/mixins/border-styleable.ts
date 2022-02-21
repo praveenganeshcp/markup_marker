@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-import { BuilderService } from "../services/builder/builder.service";
 
 type BorderStyleableStyleDeclaration = Pick<CSSStyleDeclaration, 'borderWidth' | 'borderColor' | 'borderRadius'>
 

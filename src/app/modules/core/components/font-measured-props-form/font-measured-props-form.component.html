@@ -1,14 +1,17 @@
 <section class="edit-props-form">
     <details class="widgets__groups">
         <summary>Font</summary>
-        <section class="edit-props-form__fields flex start">
+        <section [formGroup]="getStyleForm()" class="edit-props-form__fields flex start">
             <section class="edit-props-form__field">
                 <p>Size (em)</p>
-                <input type="number">
+                <input formControlName="fontSize" type="number">
             </section>
-            <section class="edit-props-form__field">
+            <section class="edit-props-form__select-field">
                 <p>Weight</p>
-                <input step="100" type="number">
+                <select formControlName="fontWeight">
+                    <option value="lighter">Lighter</option>
+                    <option value="bolder">Bolder</option>
+                </select>
             </section>
         </section>
     </details>

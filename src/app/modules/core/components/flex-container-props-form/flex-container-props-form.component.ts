@@ -10,7 +10,7 @@ import { Styleable } from '../../interface/styleable';
 })
 export class FlexContainerPropsFormComponent implements OnInit, Styleable, OnDestroy {
 
-  @Input() styleProps: any;
+  @Input() styleProps: Partial<CSSStyleDeclaration>;
   @Output() applyStyles = new EventEmitter<Partial<CSSStyleDeclaration>>();
 
   private valueChangesSubScription: Subscription;

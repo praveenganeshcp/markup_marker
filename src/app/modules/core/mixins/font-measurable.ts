@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-import { BuilderService } from "../services/builder/builder.service";
 
 type FontMeasurableStyleDeclaration = Pick<CSSStyleDeclaration, 'fontSize' | 'fontWeight'>
 
@@ -9,10 +8,12 @@ export class FontMeasurable {
     constructor() {}
 
     setFontMeasurableStyles(styleProps: FontMeasurableStyleDeclaration) {
+        styleProps.fontSize += 'em';
         this?.applyStyles(styleProps);
     }
     getFontMeasurableStyles(): FontMeasurableStyleDeclaration {
-        const { fontSize, fontWeight } = this?.getStyles();
+        let { fontSize, fontWeight } = this?.getStyles();
+        fontSize = Number(fontSize.split('em')[0])
         return { fontSize, fontWeight };
     }
 }

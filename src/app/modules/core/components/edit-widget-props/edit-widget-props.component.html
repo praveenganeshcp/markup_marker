@@ -4,7 +4,7 @@
         <app-padding-props-form></app-padding-props-form>
     </section>
     <section class="edit-props__form" *ngIf="isFontMeasureable()">
-        <app-font-measured-props-form></app-font-measured-props-form>
+        <app-font-measured-props-form (applyStyles)="setFontMeasurableStyles($event)" [styleProps]="getEditWidget()?.getFontMeasurableStyles()"></app-font-measured-props-form>
     </section> 
     <section class="edit-props__form" *ngIf="isMeasureable()">
         <app-measurement-props-form></app-measurement-props-form>
@@ -16,6 +16,6 @@
         <app-borderstyled-props-form></app-borderstyled-props-form>
     </section>
     <section class="edit-props__form" *ngIf="isContainerStyleable()">
-        <app-flex-container-props-form (applyStyles)="applyStyles($event)" [styleProps]="getEditWidget()?.getContainerStyles()"></app-flex-container-props-form>
+        <app-flex-container-props-form (applyStyles)="setContainerStyles($event)" [styleProps]="getEditWidget()?.getContainerStyles()"></app-flex-container-props-form>
     </section>
 </section>
