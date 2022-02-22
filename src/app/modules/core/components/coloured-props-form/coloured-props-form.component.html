@@ -1,14 +1,14 @@
 <section class="edit-props-form">
     <details class="widgets__groups">
         <summary>Color</summary>
-        <section class="edit-props-form__fields flex start">
+        <section [formGroup]="getStyleForm()" class="edit-props-form__fields flex start">
             <section class="edit-props-form__field">
                 <p>Base</p>
-                <input type="color">
+                <input formControlName="color" type="color">
             </section>
             <section class="edit-props-form__field">
                 <p>BG</p>
-                <input type="color">
+                <input formControlName="backgroundColor" type="color">
             </section>
         </section>
     </details>

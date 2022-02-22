@@ -45,6 +45,10 @@ export class EditWidgetPropsComponent implements OnInit, OnChanges {
     this.getEditWidget().setBorderStyles(styles);
   }
 
+  setColorStyles(styles: Partial<CSSStyleDeclaration>) {
+    this.getEditWidget().setColorStyles(styles);
+  }
+
   isMeasureable() {
     return 'setMeasurableStyles' in this.editWidget;
   }

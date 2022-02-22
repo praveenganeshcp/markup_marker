@@ -10,7 +10,7 @@
         <app-measurement-props-form (applyStyles)="setMeasurableStyles($event)" [styleProps]="getEditWidget()?.getMeasurableStyles()"></app-measurement-props-form>
     </section>
     <section class="edit-props__form" *ngIf="isColorable()">
-        <app-coloured-props-form></app-coloured-props-form>
+        <app-coloured-props-form (applyStyles)="setColorStyles($event)" [styleProps]="getEditWidget().getColorStyles()"></app-coloured-props-form>
     </section>
     <section class="edit-props__form" *ngIf="isBorderStyleable()">
         <app-borderstyled-props-form (applyStyles)="setBorderStyles($event)" [styleProps]="getEditWidget()?.getBorderStyles()"></app-borderstyled-props-form>

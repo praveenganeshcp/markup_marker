@@ -16,6 +16,8 @@ export class HtmlResolverService {
       element.style.fontSize = '2em';
       element.style.fontWeight = 'bolder';
       element.innerHTML = 'Hello World'
+      element.style.color = '#000000'
+      element.style.backgroundColor  ='#ffffff'
       return element;
     }
   }
