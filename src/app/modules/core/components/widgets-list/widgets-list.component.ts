@@ -16,6 +16,7 @@ export class WidgetsListComponent implements OnInit {
     this.widgetGroups = [
       new WidgetGroup('Text')
         .addElement(new WidgetElement('Large Heading', 'H1', ''))
+        .addElement(new WidgetElement('Small Heading', 'H3', ''))
     ]
   }
 

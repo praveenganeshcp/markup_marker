@@ -20,5 +20,14 @@ export class HtmlResolverService {
       element.style.backgroundColor  ='#ffffff'
       return element;
     }
+    else if(tagName === 'H3')  {
+      element.style.fontSize = '1.17em';
+      element.style.fontWeight = 'bolder';
+      element.innerHTML = 'Hello World'
+      element.style.color = '#000000'
+      element.style.backgroundColor  ='#ffffff'
+      return element;
+    }
+    throw new Error('Element not added in html resolver')
   }
 }
