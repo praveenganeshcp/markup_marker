@@ -68,6 +68,8 @@ export class HtmlResolverService {
       paddingBottom: '0%',
       border: '1px solid #000000',
       borderRadius: '0px',
+      width: '10%',
+      height: '5%',
     }, element)
   }
 

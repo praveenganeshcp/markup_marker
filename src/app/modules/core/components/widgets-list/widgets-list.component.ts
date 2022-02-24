@@ -24,7 +24,7 @@ export class WidgetsListComponent implements OnInit {
       new WidgetGroup('Container')
         .addElement(new WidgetElement('Flex container', 'SECTION', {})),
       new WidgetGroup('Input')
-        .addElement(new WidgetElement('Text Input', 'INPUT', { type: 'text' }))
+        .addElement(new WidgetElement('Text Input', 'INPUT', { type: 'text', value: 'value1' }))
     ]
   }
 
