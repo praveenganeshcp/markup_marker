@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges } from '@angular/core';
-import { Widget } from '../../widgets';
+import { Widget } from '../../widgets/widget';
 
 @Component({
   selector: 'app-edit-widget-props',
@@ -47,6 +47,10 @@ export class EditWidgetPropsComponent implements OnInit, OnChanges {
 
   setColorStyles(styles: Partial<CSSStyleDeclaration>) {
     this.getEditWidget().setColorStyles(styles);
+  }
+
+  isTextElement() {
+    return 'setProps' in this.editWidget;
   }
 
   isMeasureable() {

@@ -1,4 +1,7 @@
 <section class="edit-props">
+    <section class="edit-props__form" *ngIf="isTextElement()">
+        <app-text-props-form (applyStyles)="getEditWidget()?.setProps($event)" [styleProps]="getEditWidget()?.getProps()"></app-text-props-form>
+    </section>
     <section class="edit-props__form" *ngIf="isPaddingStyleable()">
         <app-padding-props-form (applyStyles)="setPaddingStyles($event)" [styleProps]="getEditWidget()?.getPaddingStyles()"></app-padding-props-form>
     </section>

@@ -21,6 +21,16 @@ export class Widget {
         })
     }
 
+    applyProps(props: HTMLElement) {
+        Object.keys(props).forEach(key => {
+            this.element[key] = props[key];
+        })
+    }
+
+    fetchProps() {
+        return this.element;
+    }
+
     getStyles() {
         return this.element.style;
     }

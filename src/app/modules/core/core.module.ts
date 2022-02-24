@@ -16,10 +16,11 @@ import { CounterComponent } from './components/counter/counter.component';
 import { WidgetMenuComponent } from './components/widget-menu/widget-menu.component';
 import { CodeOutputComponent } from './components/code-output/code-output.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TextPropsFormComponent } from './components/text-props-form/text-props-form.component';
 
 
 @NgModule({
-  declarations: [BuilderComponent, ColouredPropsFormComponent, BorderstyledPropsFormComponent, MeasurementPropsFormComponent, PaddingPropsFormComponent, FontMeasuredPropsFormComponent, FlexContainerPropsFormComponent, EditWidgetPropsComponent, WidgetsListComponent, TopBarComponent, CounterComponent, WidgetMenuComponent, CodeOutputComponent],
+  declarations: [BuilderComponent, ColouredPropsFormComponent, BorderstyledPropsFormComponent, MeasurementPropsFormComponent, PaddingPropsFormComponent, FontMeasuredPropsFormComponent, FlexContainerPropsFormComponent, EditWidgetPropsComponent, WidgetsListComponent, TopBarComponent, CounterComponent, WidgetMenuComponent, CodeOutputComponent, TextPropsFormComponent],
   imports: [
     CommonModule,
     CoreRoutingModule,
