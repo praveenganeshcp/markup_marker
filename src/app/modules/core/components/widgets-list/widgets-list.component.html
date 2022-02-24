@@ -2,7 +2,7 @@
     <details *ngFor="let widgetGroup of getWidgetGroups()" class="widgets__groups">
         <summary>{{widgetGroup.getName()}}</summary>
         <section class="flex wrap start">
-            <section *ngFor="let element of widgetGroup.getElements()" (click)="createElement(element.getTagName(), element.getClassName(), element.getInnerHTML())" [class.content-widget] = "!element.isIconWidget()" [class.icon-widget] = "element.isIconWidget()" class="flex">
+            <section *ngFor="let element of widgetGroup.getElements()" (click)="createElement(element.getTagName(), element.getClassName(), element.getInnerText())" [class.content-widget] = "!element.isIconWidget()" [class.icon-widget] = "element.isIconWidget()" class="flex">
                 <p *ngIf="!element.isIconWidget()">{{element.getName()}}</p>
                 <span *ngIf="element.isIconWidget()" [class]="element.getClassName()">{{element.getName()}}</span>
             </section>

@@ -7,13 +7,13 @@ export class HtmlResolverService {
 
   constructor() { }
 
-  resolve(tagName: string, className: string, innerHTML: string) {
+  resolve(tagName: string, className: string, innerText: string) {
     const element = document.createElement(tagName);
     if(className) {
       element.classList.add(className);
     }
-    if(innerHTML) {
-      element.innerHTML = innerHTML;
+    if(innerText) {
+      element.innerText = innerText;
     }
     if(tagName === 'H1')  {
       this.applyStyles({
@@ -22,7 +22,6 @@ export class HtmlResolverService {
         color: '#000000',
         backgroundColor: '#ffffff'
       }, element)
-      element.innerHTML = 'Hello World'
       return element;
     }
     else if(tagName === 'H3')  {
@@ -32,7 +31,6 @@ export class HtmlResolverService {
         color: '',
         backgroundColor: ''
       }, element)
-      element.innerHTML = 'Hello World'
       return element;
     }
     else if(tagName === 'SPAN') {

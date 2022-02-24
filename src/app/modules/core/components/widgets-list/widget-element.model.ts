@@ -1,6 +1,6 @@
 export class WidgetElement {
    
-    constructor( private name: string, private tagName: string, private className: string = '', private innerHTML: string = '') {}
+    constructor( private name: string, private tagName: string, private className: string = '', private innerText: string = '') {}
 
     getName() {
         return this.name;
@@ -14,8 +14,8 @@ export class WidgetElement {
         return this.className;
     }
 
-    getInnerHTML() {
-        return this.innerHTML;
+    getInnerText() {
+        return this.innerText;
     }
 
     isIconWidget() {

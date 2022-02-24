@@ -3,7 +3,7 @@ import { ContextMenuService } from 'src/app/modules/shared/services/context-menu
 import { DialogService } from 'src/app/modules/shared/services/dialog/dialog.service';
 import { WidgetMenuComponent } from '../../components/widget-menu/widget-menu.component';
 import { WidgetResolverService } from '../../services/widget-resolver/widget-resolver.service';
-import { Widget } from '../../widgets';
+import { Widget } from '../../widgets/widget';
 
 @Component({
   selector: 'app-builder',
