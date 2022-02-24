@@ -58,6 +58,12 @@ html, body {
         padding: 0;
     }
 }
+.full-width-field {
+    width: 90%;
+    input {
+        padding: 5%;
+    }
+}
 .edit-props-form__select-field {
     margin: 3% 0 0 3%;
     width: 40%;
