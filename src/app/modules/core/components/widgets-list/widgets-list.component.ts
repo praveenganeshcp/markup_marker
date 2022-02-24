@@ -15,14 +15,14 @@ export class WidgetsListComponent implements OnInit {
   constructor(private htmlResolver: HtmlResolverService) { 
     this.widgetGroups = [
       new WidgetGroup('Text')
-        .addElement(new WidgetElement('Large Heading', 'H1', '', 'Hello world'))
-        .addElement(new WidgetElement('Small Heading', 'H3', '', 'Hello world')),
+        .addElement(new WidgetElement('Large Heading', 'H1', {innerText: 'Hello world'}))
+        .addElement(new WidgetElement('Small Heading', 'H3', {innerText: 'Hello world'})),
       new WidgetGroup('Icons')
-      .addElement(new WidgetElement('5k', 'SPAN', 'material-icons', '5k'))
-      .addElement(new WidgetElement('smart_button', 'SPAN', 'material-icons', 'smart_button'))
-      .addElement(new WidgetElement('settings', 'SPAN', 'material-icons', 'settings')),
+      .addElement(new WidgetElement('5k', 'SPAN', {innerText:'5k'}, 'material-icons'))
+      .addElement(new WidgetElement('smart_button', 'SPAN', {innerText: 'smart_button'}, 'material-icons'))
+      .addElement(new WidgetElement('settings', 'SPAN', {innerText:'settings'}, 'material-icons')),
       new WidgetGroup('Container')
-        .addElement(new WidgetElement('Flex container', 'SECTION'))
+        .addElement(new WidgetElement('Flex container', 'SECTION', {}))
     ]
   }
 
@@ -33,8 +33,8 @@ export class WidgetsListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  createElement(tagName: string, className: string, innerText: string) {
-    const element = this.htmlResolver.resolve(tagName, className, innerText);
+  createElement(tagName: string, props: Partial<HTMLElement>, className: string,) {
+    const element = this.htmlResolver.resolve(tagName, props, className);
     this.createWidget.emit(element);
   }
 }

@@ -7,65 +7,90 @@ export class HtmlResolverService {
 
   constructor() { }
 
-  resolve(tagName: string, className: string, innerText: string) {
+  resolve(tagName: string, props: Partial<HTMLElement>, className: string) {
     const element = document.createElement(tagName);
     if(className) {
       element.classList.add(className);
     }
-    if(innerText) {
-      element.innerText = innerText;
+    this.applyProps(props, element);
+    switch(tagName) {
+      case 'H1': {
+        this.setLargeHeadingProps(element);
+        break;
+      }
+      case 'H3': {
+        this.setSmallHeadingProps(element);
+        break;
+      }
+      case 'SPAN': {
+        this.setSpanProps(element);
+        break;
+      }
+      case 'SECTION': {
+        this.setSectionProps(element);
+        break;
+      }
+      default: {
+        throw new Error('Element not added in html resolver')
+      }
     }
-    if(tagName === 'H1')  {
-      this.applyStyles({
-        fontSize: '2em',
-        fontWeight: 'bolder',
-        color: '#000000',
-        backgroundColor: '#ffffff'
-      }, element)
-      return element;
-    }
-    else if(tagName === 'H3')  {
-      this.applyStyles({
-        fontSize: '1.17em',
-        fontWeight: 'bolder',
-        color: '',
-        backgroundColor: ''
-      }, element)
-      return element;
-    }
-    else if(tagName === 'SPAN') {
-      this.applyStyles({
-        fontSize:'5em',
-        fontWeight: 'lighter',
-        color: '#000000',
-        backgroundColor: '#ffffff'
-      }, element)
-      return element;
-    }
-    else if(tagName === 'SECTION') {
-      this.applyStyles({
-        paddingLeft : '0%',
-        paddingRight: '0%',
-        paddingTop: '0%',
-        paddingBottom: '0%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-evenly',
-        width: '50%',
-        height: '50%',
-        border: '1px solid #000000',
-        borderRadius: '0px',
-        backgroundColor: '#ffffff',
-        color: '#000000'
-      }, element)
-      return element;
-    }
-    throw new Error('Element not added in html resolver')
+    return element;
   }
 
   private applyStyles(styles: Partial<CSSStyleDeclaration>, element: HTMLElement) {
     Object.keys(styles).forEach(propKey => {
       element.style[propKey] = styles[propKey];
     })
+  }
+
+  private applyProps(props: Partial<HTMLElement>, element: HTMLElement) {
+    Object.keys(props).forEach(key => {
+      element[key] = props[key];
+    })
+  }
+
+  private setLargeHeadingProps(element: HTMLElement) {
+    this.applyStyles({
+      fontSize: '2em',
+      fontWeight: 'bolder',
+      color: '#000000',
+      backgroundColor: '#ffffff'
+    }, element)
+  }
+
+  private setSmallHeadingProps(element: HTMLElement) {
+    this.applyStyles({
+      fontSize: '1.17em',
+      fontWeight: 'bolder',
+      color: '',
+      backgroundColor: ''
+    }, element)
+  }
+
+  private setSpanProps(element: HTMLElement) {
+    this.applyStyles({
+      fontSize:'5em',
+      fontWeight: 'lighter',
+      color: '#000000',
+      backgroundColor: '#ffffff'
+    }, element)
+  }
+
+  private setSectionProps(element: HTMLElement) {
+    this.applyStyles({
+      paddingLeft : '0%',
+      paddingRight: '0%',
+      paddingTop: '0%',
+      paddingBottom: '0%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-evenly',
+      width: '50%',
+      height: '50%',
+      border: '1px solid #000000',
+      borderRadius: '0px',
+      backgroundColor: '#ffffff',
+      color: '#000000'
+    }, element)
   }
  }

@@ -1,6 +1,6 @@
 export class WidgetElement {
    
-    constructor( private name: string, private tagName: string, private className: string = '', private innerText: string = '') {}
+    constructor( private name: string, private tagName: string, private props: Partial<HTMLElement>, private className: string = '') {}
 
     getName() {
         return this.name;
@@ -14,8 +14,8 @@ export class WidgetElement {
         return this.className;
     }
 
-    getInnerText() {
-        return this.innerText;
+    getProps() {
+        return this.props;
     }
 
     isIconWidget() {
