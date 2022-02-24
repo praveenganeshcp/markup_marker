@@ -15,8 +15,11 @@ export class WidgetsListComponent implements OnInit {
   constructor(private htmlResolver: HtmlResolverService) { 
     this.widgetGroups = [
       new WidgetGroup('Text')
-        .addElement(new WidgetElement('Large Heading', 'H1', ''))
-        .addElement(new WidgetElement('Small Heading', 'H3', ''))
+        .addElement(new WidgetElement('Large Heading', 'H1'))
+        .addElement(new WidgetElement('Small Heading', 'H3')),
+      new WidgetGroup('Icons')
+      .addElement(new WidgetElement('5k', 'SPAN', 'material-icons', '5k'))
+      .addElement(new WidgetElement('smart_button', 'SPAN', 'material-icons', 'smart_button')),
     ]
   }
 
@@ -27,8 +30,8 @@ export class WidgetsListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  createElement(tagName: string, className: string) {
-    const element = this.htmlResolver.resolve(tagName, className);
+  createElement(tagName: string, className: string, innerHTML: string) {
+    const element = this.htmlResolver.resolve(tagName, className, innerHTML);
     this.createWidget.emit(element);
   }
 }
