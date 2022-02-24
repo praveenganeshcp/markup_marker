@@ -22,7 +22,9 @@ export class WidgetsListComponent implements OnInit {
       .addElement(new WidgetElement('smart_button', 'SPAN', {innerText: 'smart_button'}, 'material-icons'))
       .addElement(new WidgetElement('settings', 'SPAN', {innerText:'settings'}, 'material-icons')),
       new WidgetGroup('Container')
-        .addElement(new WidgetElement('Flex container', 'SECTION', {}))
+        .addElement(new WidgetElement('Flex container', 'SECTION', {})),
+      new WidgetGroup('Input')
+        .addElement(new WidgetElement('Text Input', 'INPUT', { type: 'text' }))
     ]
   }
 

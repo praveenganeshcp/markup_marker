@@ -30,6 +30,15 @@ export class HtmlResolverService {
         this.setSectionProps(element);
         break;
       }
+      case 'INPUT': {
+        if('type' in props) {
+          if(props['type'] === 'text') {
+            console.log('caled')
+            this.setTextInputProps(element);          
+          }
+        }
+        break;
+      }
       default: {
         throw new Error('Element not added in html resolver')
       }
@@ -47,6 +56,19 @@ export class HtmlResolverService {
     Object.keys(props).forEach(key => {
       element[key] = props[key];
     })
+  }
+
+  private setTextInputProps(element: HTMLElement) {
+    this.applyStyles({
+      fontSize: '2em',
+      fontWeight: 'bolder',
+      paddingLeft : '0%',
+      paddingRight: '0%',
+      paddingTop: '0%',
+      paddingBottom: '0%',
+      border: '1px solid #000000',
+      borderRadius: '0px',
+    }, element)
   }
 
   private setLargeHeadingProps(element: HTMLElement) {

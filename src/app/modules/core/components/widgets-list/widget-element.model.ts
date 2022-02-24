@@ -1,6 +1,6 @@
 export class WidgetElement {
    
-    constructor( private name: string, private tagName: string, private props: Partial<HTMLElement>, private className: string = '') {}
+    constructor( private name: string, private tagName: string, private props: Partial<HTMLElement | HTMLInputElement>, private className: string = '') {}
 
     getName() {
         return this.name;
