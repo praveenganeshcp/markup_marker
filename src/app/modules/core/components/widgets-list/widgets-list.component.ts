@@ -20,6 +20,8 @@ export class WidgetsListComponent implements OnInit {
       new WidgetGroup('Icons')
       .addElement(new WidgetElement('5k', 'SPAN', 'material-icons', '5k'))
       .addElement(new WidgetElement('smart_button', 'SPAN', 'material-icons', 'smart_button')),
+      new WidgetGroup('Container')
+        .addElement(new WidgetElement('Flex container', 'SECTION'))
     ]
   }
 

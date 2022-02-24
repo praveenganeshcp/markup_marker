@@ -16,28 +16,56 @@ export class HtmlResolverService {
       element.innerHTML = innerHTML;
     }
     if(tagName === 'H1')  {
-      element.style.fontSize = '2em';
-      element.style.fontWeight = 'bolder';
+      this.applyStyles({
+        fontSize: '2em',
+        fontWeight: 'bolder',
+        color: '#000000',
+        backgroundColor: '#ffffff'
+      }, element)
       element.innerHTML = 'Hello World'
-      element.style.color = '#000000'
-      element.style.backgroundColor  ='#ffffff'
       return element;
     }
     else if(tagName === 'H3')  {
-      element.style.fontSize = '1.17em';
-      element.style.fontWeight = 'bolder';
+      this.applyStyles({
+        fontSize: '1.17em',
+        fontWeight: 'bolder',
+        color: '',
+        backgroundColor: ''
+      }, element)
       element.innerHTML = 'Hello World'
-      element.style.color = '#000000'
-      element.style.backgroundColor  ='#ffffff'
       return element;
     }
     else if(tagName === 'SPAN') {
-      element.style.fontSize = '5em';
-      element.style.fontWeight = 'lighter';
-      element.style.color = 'black'
-      element.style.backgroundColor  ='white'
+      this.applyStyles({
+        fontSize:'5em',
+        fontWeight: 'lighter',
+        color: '#000000',
+        backgroundColor: '#ffffff'
+      }, element)
+      return element;
+    }
+    else if(tagName === 'SECTION') {
+      this.applyStyles({
+        paddingLeft : '0%',
+        paddingRight: '0%',
+        paddingTop: '0%',
+        paddingBottom: '0%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-evenly',
+        width: '50%',
+        height: '50%',
+        border: '1px solid #000000',
+        borderRadius: '0px',
+      }, element)
       return element;
     }
     throw new Error('Element not added in html resolver')
   }
-}
+
+  private applyStyles(styles: Partial<CSSStyleDeclaration>, element: HTMLElement) {
+    Object.keys(styles).forEach(propKey => {
+      element.style[propKey] = styles[propKey];
+    })
+  }
+ }
