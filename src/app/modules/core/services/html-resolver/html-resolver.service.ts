@@ -57,6 +57,8 @@ export class HtmlResolverService {
         height: '50%',
         border: '1px solid #000000',
         borderRadius: '0px',
+        backgroundColor: '#ffffff',
+        color: '#000000'
       }, element)
       return element;
     }
