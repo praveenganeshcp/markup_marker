@@ -1,5 +1,4 @@
 <section class="edit-props">
-    <button (click)="closeTab()">Close</button>
     <section class="edit-props__form" *ngIf="isPaddingStyleable()">
         <app-padding-props-form (applyStyles)="setPaddingStyles($event)" [styleProps]="getEditWidget()?.getPaddingStyles()"></app-padding-props-form>
     </section>
