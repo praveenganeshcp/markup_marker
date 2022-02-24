@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Widget } from '../../widgets';
+import { IconWidget } from '../../widgets';
 import { FlexContainerWidget } from '../../widgets/flex-container';
 import { LargeHeadingWidget } from '../../widgets/large-heading';
 import { SmallHeadingWidget } from '../../widgets/small-heading';
+import { Widget } from '../../widgets/widget';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,10 @@ export class WidgetResolverService {
     else if(tagName === 'SECTION') {
       return new FlexContainerWidget(element);
     }
-    throw new Error('Widget not added for '+tagName)
+    else if(tagName === 'SPAN') {
+      return new IconWidget(element);
+    }
+    throw new Error('Widget not added for '+tagName);
     return null;
   }
 }
