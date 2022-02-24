@@ -25,30 +25,6 @@ export class EditWidgetPropsComponent implements OnInit, OnChanges {
     return this.editWidget;
   }
 
-  setFontMeasurableStyles(styles: Partial<CSSStyleDeclaration>) {
-    this.getEditWidget().setFontMeasurableStyles(styles);
-  }
-
-  setContainerStyles(styles: Partial<CSSStyleDeclaration>) {
-    this.getEditWidget().setContainerStyles(styles);
-  }
-
-  setPaddingStyles(styles: Partial<CSSStyleDeclaration>) {
-    this.getEditWidget().setPaddingStyles(styles);
-  }
-
-  setMeasurableStyles(styles: Partial<CSSStyleDeclaration>) {
-    this.getEditWidget().setMeasurableStyles(styles);
-  }
-
-  setBorderStyles(styles: Partial<CSSStyleDeclaration>) {
-    this.getEditWidget().setBorderStyles(styles);
-  }
-
-  setColorStyles(styles: Partial<CSSStyleDeclaration>) {
-    this.getEditWidget().setColorStyles(styles);
-  }
-
   isTextElement() {
     return 'setProps' in this.editWidget;
   }

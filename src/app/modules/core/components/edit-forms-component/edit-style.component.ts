@@ -6,8 +6,8 @@ import { Styleable } from "../../interface/styleable";
 @Directive()
 export class EditStyleComponent implements Styleable, OnInit, OnChanges, OnDestroy {
 
-    @Input() styleProps: Partial<CSSStyleDeclaration>;
-    @Output() applyStyles = new EventEmitter<Partial<CSSStyleDeclaration>>();
+    @Input() props: Partial<CSSStyleDeclaration>;
+    @Output() applyChanges = new EventEmitter<Partial<CSSStyleDeclaration>>();
     private valueChangesSubScription: Subscription;
 
     private styleForm: FormGroup;
@@ -20,17 +20,17 @@ export class EditStyleComponent implements Styleable, OnInit, OnChanges, OnDestr
     }
 
     ngOnInit(): void {
-        this.getStyleForm().setValue(this.styleProps);
+        this.getStyleForm().setValue(this.props);
         this.valueChangesSubScription = this.getStyleForm().valueChanges.subscribe(
           changes => {
-            this.applyStyles.emit(changes);
+            this.applyChanges.emit(changes);
           },
           console.error
         )
     }
 
     ngOnChanges(changes: SimpleChanges): void {
-        const styleChanges: SimpleChange = changes.styleProps;
+        const styleChanges: SimpleChange = changes.props;
         this.getStyleForm().setValue(styleChanges.currentValue);
     }
 

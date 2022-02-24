@@ -1,23 +1,23 @@
 <section class="edit-props">
     <section class="edit-props__form" *ngIf="isTextElement()">
-        <app-text-props-form (applyStyles)="getEditWidget()?.setProps($event)" [styleProps]="getEditWidget()?.getProps()"></app-text-props-form>
+        <app-text-props-form (applyChanges)="getEditWidget()?.setProps($event)" [props]="getEditWidget()?.getProps()"></app-text-props-form>
     </section>
     <section class="edit-props__form" *ngIf="isPaddingStyleable()">
-        <app-padding-props-form (applyStyles)="setPaddingStyles($event)" [styleProps]="getEditWidget()?.getPaddingStyles()"></app-padding-props-form>
+        <app-padding-props-form (applyChanges)="getEditWidget()?.setPaddingStyles($event)" [props]="getEditWidget()?.getPaddingStyles()"></app-padding-props-form>
     </section>
     <section class="edit-props__form" *ngIf="isFontMeasureable()">
-        <app-font-measured-props-form (applyStyles)="setFontMeasurableStyles($event)" [styleProps]="getEditWidget()?.getFontMeasurableStyles()"></app-font-measured-props-form>
+        <app-font-measured-props-form (applyChanges)="getEditWidget()?.setFontMeasurableStyles($event)" [props]="getEditWidget()?.getFontMeasurableStyles()"></app-font-measured-props-form>
     </section> 
     <section class="edit-props__form" *ngIf="isMeasureable()">
-        <app-measurement-props-form (applyStyles)="setMeasurableStyles($event)" [styleProps]="getEditWidget()?.getMeasurableStyles()"></app-measurement-props-form>
+        <app-measurement-props-form (applyChanges)="getEditWidget()?.setMeasurableStyles($event)" [props]="getEditWidget()?.getMeasurableStyles()"></app-measurement-props-form>
     </section>
     <section class="edit-props__form" *ngIf="isColorable()">
-        <app-coloured-props-form (applyStyles)="setColorStyles($event)" [styleProps]="getEditWidget().getColorStyles()"></app-coloured-props-form>
+        <app-coloured-props-form (applyChanges)="getEditWidget()?.setColorStyles($event)" [props]="getEditWidget().getColorStyles()"></app-coloured-props-form>
     </section>
     <section class="edit-props__form" *ngIf="isBorderStyleable()">
-        <app-borderstyled-props-form (applyStyles)="setBorderStyles($event)" [styleProps]="getEditWidget()?.getBorderStyles()"></app-borderstyled-props-form>
+        <app-borderstyled-props-form (applyChanges)="getEditWidget()?.setBorderStyles($event)" [props]="getEditWidget()?.getBorderStyles()"></app-borderstyled-props-form>
     </section>
     <section class="edit-props__form" *ngIf="isContainerStyleable()">
-        <app-flex-container-props-form (applyStyles)="setContainerStyles($event)" [styleProps]="getEditWidget()?.getContainerStyles()"></app-flex-container-props-form>
+        <app-flex-container-props-form (applyChanges)="getEditWidget()?.setContainerStyles($event)" [props]="getEditWidget()?.getContainerStyles()"></app-flex-container-props-form>
     </section>
 </section>
