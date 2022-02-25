@@ -56,11 +56,11 @@ export class Widget {
     }
 
     delete() {
-        
+        this.getElement().remove();
     }
 
     copy() {
         const clonedNode = this.getElement().cloneNode(true);
-        this.appendChild(clonedNode as HTMLElement);
+        this.getElement().parentElement.appendChild(clonedNode);
     }
 }

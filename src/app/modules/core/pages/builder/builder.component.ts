@@ -72,7 +72,7 @@ export class BuilderComponent implements OnInit, AfterViewInit {
         if(userChoice === 'copy') {
           widget.copy();
         }
-        else if(userChoice === 'remove') {
+        else if(userChoice === 'delete') {
           widget.delete();
         }
         else if(userChoice === 'edit') {
