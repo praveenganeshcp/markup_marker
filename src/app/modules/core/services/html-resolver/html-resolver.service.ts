@@ -9,6 +9,7 @@ export class HtmlResolverService {
 
   resolve(tagName: string, props: Partial<HTMLElement>, className: string) {
     const element = document.createElement(tagName);
+    element.setAttribute('id', `${tagName}-${Date.now()}`)
     if(className) {
       element.classList.add(className);
     }
