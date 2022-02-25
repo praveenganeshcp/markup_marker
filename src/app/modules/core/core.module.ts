@@ -17,10 +17,11 @@ import { WidgetMenuComponent } from './components/widget-menu/widget-menu.compon
 import { CodeOutputComponent } from './components/code-output/code-output.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TextPropsFormComponent } from './components/text-props-form/text-props-form.component';
+import { ViewCodeComponent } from './components/view-code/view-code.component';
 
 
 @NgModule({
-  declarations: [BuilderComponent, ColouredPropsFormComponent, BorderstyledPropsFormComponent, MeasurementPropsFormComponent, PaddingPropsFormComponent, FontMeasuredPropsFormComponent, FlexContainerPropsFormComponent, EditWidgetPropsComponent, WidgetsListComponent, TopBarComponent, CounterComponent, WidgetMenuComponent, CodeOutputComponent, TextPropsFormComponent],
+  declarations: [BuilderComponent, ColouredPropsFormComponent, BorderstyledPropsFormComponent, MeasurementPropsFormComponent, PaddingPropsFormComponent, FontMeasuredPropsFormComponent, FlexContainerPropsFormComponent, EditWidgetPropsComponent, WidgetsListComponent, TopBarComponent, CounterComponent, WidgetMenuComponent, CodeOutputComponent, TextPropsFormComponent, ViewCodeComponent],
   imports: [
     CommonModule,
     CoreRoutingModule,
