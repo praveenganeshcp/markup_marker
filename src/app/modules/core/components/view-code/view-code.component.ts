@@ -32,4 +32,12 @@ export class ViewCodeComponent implements OnInit {
     navigator.clipboard.writeText(this.getCSSCode());
   }
 
+  getIconStyleSheet() {
+    return `<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">`
+  }
+
+  copyIconStyleSheet() {
+    navigator.clipboard.writeText(this.getIconStyleSheet());
+  }
+
 }

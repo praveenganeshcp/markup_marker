@@ -20,7 +20,9 @@
         </section>
     </section>
     <section class="external-links flex">
-        <p><b>Icon stylesheet</b> &#60;link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"&#62;</p>
+        <p><b>Icon stylesheet</b> {{getIconStyleSheet()}}</p>
+        <button (click)="copyIconStyleSheet()" class="flex">
+            <span class="material-icons">content_copy</span> Copy
+        </button>
     </section>
 </main>
