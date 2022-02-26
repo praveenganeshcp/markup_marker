@@ -26,8 +26,11 @@ export class AppComponent implements AfterViewInit {
     this.dialogService.setRef(this.dialogContainer);
   }
 
-  closeAllPopups() {
+  closeContextMenu() {
     this.contextMenuService.close(undefined)
+  }
+
+  closeDialog() {
     this.dialogService.close(undefined)
   }
 }
