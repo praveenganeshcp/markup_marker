@@ -33,4 +33,8 @@ export class AppComponent implements AfterViewInit {
   closeDialog() {
     this.dialogService.onOutsideClick()
   }
+
+  preventBubbling(event) {
+    event.stopPropagation()
+  }
 }

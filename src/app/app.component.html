@@ -3,7 +3,7 @@
         <ng-template #contextMenu></ng-template>
     </div>
     <div (click)="closeDialog()" #dialogRootHost class="dialog flex">
-        <div class="dialog-host" #dialogHost>
+        <div (click)="preventBubbling($event)" class="dialog-host" #dialogHost>
             <ng-template #dialog></ng-template>
         </div>
     </div>
