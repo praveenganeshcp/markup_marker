@@ -31,6 +31,6 @@ export class AppComponent implements AfterViewInit {
   }
 
   closeDialog() {
-    this.dialogService.close(undefined)
+    this.dialogService.onOutsideClick()
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DialogService } from 'src/app/modules/shared/services/dialog/dialog.service';
 
 @Component({
   selector: 'app-view-code',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewCodeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dialogService: DialogService) { 
+    console.log(this.dialogService.getData());
+  }
 
   ngOnInit(): void {
   }
