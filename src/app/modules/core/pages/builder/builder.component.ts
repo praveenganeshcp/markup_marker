@@ -6,6 +6,7 @@ import { WidgetResolverService } from '../../services/widget-resolver/widget-res
 import { Widget } from '../../widgets/widget';
 import htmlFormatter from 'pretty';
 import cssFormatter from 'cssbeautify';
+import { ViewCodeComponent } from '../../components/view-code/view-code.component';
 
 @Component({
   selector: 'app-builder',
@@ -105,9 +106,14 @@ export class BuilderComponent implements OnInit, AfterViewInit {
       element.removeAttribute('style');
       element.removeAttribute('id');
     })
-    // this.showResults(cssFormatter(cssText), htmlFormatter(rootElement.children[0].outerHTML))
-    console.log(cssFormatter(cssText));
-    console.log(htmlFormatter(rootElement.children[0].outerHTML))
+    this.showCode(htmlFormatter(rootElement.children[0].outerHTML), cssFormatter(cssText))
+  }
+
+  private showCode(htmlCode: string, cssText: string) {
+    this.dialogService.open(ViewCodeComponent, 80, 80, {
+      isClosable: true, 
+      data: { htmlCode, cssText }
+    })
   }
   
 

@@ -8,11 +8,20 @@ import { DialogService } from 'src/app/modules/shared/services/dialog/dialog.ser
 })
 export class ViewCodeComponent implements OnInit {
 
+  private codeOutput: any;
   constructor(private dialogService: DialogService) { 
-    console.log(this.dialogService.getData());
+    this.codeOutput = this.dialogService.getData();
   }
 
   ngOnInit(): void {
+  }
+
+  getHTMLCode() {
+    return this.codeOutput.htmlCode;
+  }
+
+  getCSSCode() {
+    return this.codeOutput.cssText;
   }
 
 }
