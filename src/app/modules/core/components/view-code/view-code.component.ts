@@ -24,4 +24,12 @@ export class ViewCodeComponent implements OnInit {
     return this.codeOutput.cssText;
   }
 
+  copyHTML() {
+    navigator.clipboard.writeText(this.getHTMLCode());
+  }
+
+  copyCSS() {
+    navigator.clipboard.writeText(this.getCSSCode());
+  }
+
 }

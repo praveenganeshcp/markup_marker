@@ -3,7 +3,7 @@
         <section class="html">
             <header class="html-header flex sb">
                 <h1>HTML Code</h1>
-                <button class="flex"><span class="material-icons">content_copy</span> Copy</button>
+                <button (click)="copyHTML()" class="flex"><span class="material-icons">content_copy</span> Copy</button>
             </header>
             <section class="html-code">
                 <pre>{{getHTMLCode()}}</pre>
@@ -12,7 +12,7 @@
         <section class="css">
             <header class="css-header flex sb">
                 <h1>CSS Code</h1>
-                <button class="flex"><span class="material-icons">content_copy</span> Copy</button>
+                <button (click)="copyCSS()" class="flex"><span class="material-icons">content_copy</span> Copy</button>
             </header>
             <section class="css-code">
                 <pre>{{getCSSCode()}}</pre>

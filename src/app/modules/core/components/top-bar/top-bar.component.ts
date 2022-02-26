@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ConfigService } from 'src/app/services/config/config.service';
 
 @Component({
@@ -8,9 +8,14 @@ import { ConfigService } from 'src/app/services/config/config.service';
 })
 export class TopBarComponent implements OnInit {
 
+  @Output() generateCode = new EventEmitter();
   constructor(public configService: ConfigService) { }
 
   ngOnInit(): void {
+  }
+
+  generateOutput() {
+    this.generateCode.emit();
   }
 
 }
