@@ -18,10 +18,11 @@ import { CodeOutputComponent } from './components/code-output/code-output.compon
 import { ReactiveFormsModule } from '@angular/forms';
 import { TextPropsFormComponent } from './components/text-props-form/text-props-form.component';
 import { ViewCodeComponent } from './components/view-code/view-code.component';
+import { HelpBannerComponent } from './components/help-banner/help-banner.component';
 
 
 @NgModule({
-  declarations: [BuilderComponent, ColouredPropsFormComponent, BorderstyledPropsFormComponent, MeasurementPropsFormComponent, PaddingPropsFormComponent, FontMeasuredPropsFormComponent, FlexContainerPropsFormComponent, EditWidgetPropsComponent, WidgetsListComponent, TopBarComponent, CounterComponent, WidgetMenuComponent, CodeOutputComponent, TextPropsFormComponent, ViewCodeComponent],
+  declarations: [BuilderComponent, ColouredPropsFormComponent, BorderstyledPropsFormComponent, MeasurementPropsFormComponent, PaddingPropsFormComponent, FontMeasuredPropsFormComponent, FlexContainerPropsFormComponent, EditWidgetPropsComponent, WidgetsListComponent, TopBarComponent, CounterComponent, WidgetMenuComponent, CodeOutputComponent, TextPropsFormComponent, ViewCodeComponent, HelpBannerComponent],
   imports: [
     CommonModule,
     CoreRoutingModule,
