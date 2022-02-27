@@ -25,12 +25,14 @@
     span {
         font-size: 3em;
     }
+    cursor: default;
 }
 .content-widget {
     @extend .widgets__group;
     height: 10%;
     width: auto;
     margin: 4% 3% 3% 0;
+    cursor: default;
 }
 .widget-list__title {
     font-size: 2em;
