@@ -9,13 +9,13 @@
             </b>
         </h3>
         <ol class="help-banner__steps">
-            <li>Click on the widget to select it as the <b>parent widget</b>. parent widget will be hightlighed in blue outline</li>
-            <li>Click on one of the widgets from the <b>Widgets list</b> to append in the parent widget</li>
-            <li>Right click on the widget to choose <b>Edit, Copy, Delete</b> options </li>
-            <li>Finally click on the <b>Generate code</b> button to see the code output</li>
+            <li>Click on the widget to select it as the <b>parent widget</b>. parent widget will be hightlighed in blue outline.</li>
+            <li>Click on one of the widgets from the <b>Widgets list</b> to append in the selected parent widget.</li>
+            <li>Right click on the widget and choose <b>Edit</b> option. Change the style and widget props using the right side panel.</li>
+            <li>Finally click on the <b>Generate code</b> button to see the code output.</li>
         </ol>
         <section class="flex">
-            <button class="help-banner__proceed-btn">Got it</button>
+            <button (click)="close()" class="help-banner__proceed-btn">Got it</button>
         </section>
     </section>
     <footer class="help-banner__footer"></footer>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DialogService } from 'src/app/modules/shared/services/dialog/dialog.service';
 
 @Component({
   selector: 'app-help-banner',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HelpBannerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dialogService: DialogService) { }
 
   ngOnInit(): void {
+  }
+
+  close() {
+    this.dialogService.close(undefined)
   }
 
 }
