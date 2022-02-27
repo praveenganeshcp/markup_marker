@@ -1,4 +1,9 @@
 <section class="header flex sb">
     <h2 class="header__name">{{configService.getAppName()}}</h2>
-    <button (click)="generateOutput()" class="transparent">Generate code</button>
+    <nav class="header__nav flex">
+        <span (click)="openHelpBanner()" class="material-icons">
+            help
+        </span>
+        <button (click)="generateOutput()" class="transparent">Generate code</button>
+    </nav>
 </section>
