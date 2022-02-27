@@ -7,6 +7,7 @@ import { Widget } from '../../widgets/widget';
 import htmlFormatter from 'pretty';
 import cssFormatter from 'cssbeautify';
 import { ViewCodeComponent } from '../../components/view-code/view-code.component';
+import { HelpBannerComponent } from '../../components/help-banner/help-banner.component';
 
 @Component({
   selector: 'app-builder',
@@ -27,7 +28,12 @@ export class BuilderComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {}
 
-  ngAfterViewInit(): void {}
+  ngAfterViewInit(): void {
+      this.dialogService.open(HelpBannerComponent, 60, 60, {
+          data: {},
+          isClosable: true
+      })
+  }
 
   getBuilderRoot() {
     return this.builderRoot;
