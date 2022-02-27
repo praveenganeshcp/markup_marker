@@ -1,5 +1,5 @@
 <section class="edit-props">
-    <h1 class="edit-props__title">EDIT PROPS</h1>
+    <h3 class="edit-props__title">EDIT PROPS</h3>
     <section class="edit-props__form" *ngIf="isTextElement()">
         <app-text-props-form (applyChanges)="getEditWidget()?.setProps($event)" [props]="getEditWidget()?.getProps()"></app-text-props-form>
     </section>

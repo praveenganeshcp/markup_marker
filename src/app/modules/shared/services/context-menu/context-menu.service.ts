@@ -28,7 +28,7 @@ export class ContextMenuService {
     this.ref.clear();
     this.host.style.left = left+'px';
     this.host.style.top = top+'px';
-    this.host.style.height = '13.9%'
+    this.host.style.height = '18%'
     this.host.style.width = '10%'
     this.host.style.backgroundColor = 'blue';
     const factory = this.resolver.resolveComponentFactory(component);
