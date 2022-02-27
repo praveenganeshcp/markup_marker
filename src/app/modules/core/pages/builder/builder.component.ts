@@ -29,6 +29,7 @@ export class BuilderComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
+      this.builderRoot.nativeElement.click();
       this.dialogService.open(HelpBannerComponent, 60, 60, {
           data: {},
           isClosable: true
