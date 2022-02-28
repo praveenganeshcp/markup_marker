@@ -3,6 +3,7 @@ import { IconWidget } from '../../widgets';
 import { FlexContainerWidget } from '../../widgets/flex-container';
 import { LargeHeadingWidget } from '../../widgets/large-heading';
 import { SmallHeadingWidget } from '../../widgets/small-heading';
+import { SmallTextWidget } from '../../widgets/small-text';
 import { TextInputWidget } from '../../widgets/text-input';
 import { Widget } from '../../widgets/widget';
 
@@ -35,7 +36,9 @@ export class WidgetResolverService {
         }
       }
     }
+    else if(tagName === 'SMALL') {
+      return new SmallTextWidget(element);
+    }
     throw new Error('Widget not added for '+tagName);
-    return null;
   }
 }

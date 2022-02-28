@@ -22,6 +22,7 @@ export class WidgetsListService {
     return new WidgetGroup('Text')
     .addElement(new WidgetElement('Large Heading', 'H1', {innerText: 'Hello world'}))
     .addElement(new WidgetElement('Small Heading', 'H3', {innerText: 'Hello world'}))
+    .addElement(new WidgetElement('Small Text', 'SMALL', {innerHTML: 'Click me !'}))
   }
 
   private createIconWidgets() {

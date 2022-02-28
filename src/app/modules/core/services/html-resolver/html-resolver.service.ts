@@ -40,11 +40,24 @@ export class HtmlResolverService {
         }
         break;
       }
+      case 'SMALL': {
+        this.setSmallTextStyles(element);
+        break;
+      }
       default: {
         throw new Error('Element not added in html resolver')
       }
     }
     return element;
+  }
+
+  private setSmallTextStyles(element: HTMLElement) {
+    this.applyStyles({
+      fontSize: '1em',
+      fontWeight: 'bolder',
+      color: '#000000',
+      backgroundColor: '#ffffff'
+    }, element)
   }
 
   private applyStyles(styles: Partial<CSSStyleDeclaration>, element: HTMLElement) {
