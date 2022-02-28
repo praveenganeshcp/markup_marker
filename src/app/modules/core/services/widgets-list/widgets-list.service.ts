@@ -25,10 +25,11 @@ export class WidgetsListService {
   }
 
   private createIconWidgets() {
-    return new WidgetGroup('Icons')
-    .addElement(new WidgetElement('5k', 'SPAN', {innerText:'5k'}, 'material-icons'))
-    .addElement(new WidgetElement('smart_button', 'SPAN', {innerText: 'smart_button'}, 'material-icons'))
-    .addElement(new WidgetElement('settings', 'SPAN', {innerText:'settings'}, 'material-icons'));
+    const iconGroup = new WidgetGroup('Icons')
+    this.getIconList().forEach(icon => {
+      iconGroup.addElement(new WidgetElement(icon, 'SPAN', {innerText:icon}, 'material-icons'))
+    })
+    return iconGroup;
   }
 
   private createContainerWidgets() {
@@ -39,5 +40,11 @@ export class WidgetsListService {
   private createInputWidgets() {
     return new WidgetGroup('Input')
     .addElement(new WidgetElement('Text Input', 'INPUT', { type: 'text', value: 'value1' }))
+  }
+
+  private getIconList() {
+    return ['settings', 'check_circle', 'visibility', 'favorite', 'face', 'delete', 'check_circle_outline', 'account_balance',
+    'account_balance_wallet', 'view_list', 'verified_user', 'code', 'watch_later', 'launch', 'payment', 
+    'exit_to_app', 'thumb_up_off_alt', 'dns', 'bug_report']
   }
 }
