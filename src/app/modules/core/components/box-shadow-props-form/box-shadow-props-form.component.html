@@ -1,0 +1,27 @@
+<section class="edit-props-form">
+    <details class="widgets__groups">
+        <summary>Box Shadow (px)</summary>
+        <section [formGroup]="getStyleForm()" class="edit-props-form__fields flex start">
+            <section class="edit-props-form__field">
+                <p>Horizontal</p>
+                <input formControlName="horizontal" type="number">
+            </section>
+            <section class="edit-props-form__field">
+                <p>Vertical</p>
+                <input formControlName="vertical" type="number">
+            </section>
+            <section class="edit-props-form__field">
+                <p>Blur</p>
+                <input formControlName="blur" type="number">
+            </section>
+            <section class="edit-props-form__field">
+                <p>Spread</p>
+                <input formControlName="spread" type="number">
+            </section>
+            <section class="edit-props-form__field">
+                <p>Color</p>
+                <input formControlName="color" type="color">
+            </section>
+        </section>
+    </details>
+</section>

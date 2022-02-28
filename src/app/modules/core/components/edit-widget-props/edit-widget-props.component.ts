@@ -29,6 +29,10 @@ export class EditWidgetPropsComponent implements OnInit, OnChanges {
     return 'setProps' in this.editWidget;
   }
 
+  isBoxShadowable() {
+    return 'setBoxShadowStyles' in this.editWidget;
+  }
+
   isMeasureable() {
     return 'setMeasurableStyles' in this.editWidget;
   }

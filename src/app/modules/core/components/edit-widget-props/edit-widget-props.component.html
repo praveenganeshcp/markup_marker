@@ -3,6 +3,9 @@
     <section class="edit-props__form" *ngIf="isTextElement()">
         <app-text-props-form (applyChanges)="getEditWidget()?.setProps($event)" [props]="getEditWidget()?.getProps()"></app-text-props-form>
     </section>
+    <section class="edit-props__form" *ngIf="isBoxShadowable()">
+         <app-box-shadow-props-form (applyChanges)="getEditWidget()?.setBoxShadowStyles($event)" [props]="getEditWidget()?.getBoxShadowStyles()"></app-box-shadow-props-form>
+    </section>
     <section class="edit-props__form" *ngIf="isPaddingStyleable()">
         <app-padding-props-form (applyChanges)="getEditWidget()?.setPaddingStyles($event)" [props]="getEditWidget()?.getPaddingStyles()"></app-padding-props-form>
     </section>

@@ -1,4 +1,5 @@
 import { BorderStyleable } from "../mixins/border-styleable";
+import { BoxShadow } from "../mixins/box-shadow";
 import { Colorable } from "../mixins/colorable";
 import { ContainerStyleable } from "../mixins/container-styleable";
 import { Measurable } from "../mixins/measurable";
@@ -12,4 +13,4 @@ export class FlexContainerWidget extends Widget {
     }
 }
 
-applyMixins(FlexContainerWidget, [Colorable, Measurable, BorderStyleable, ContainerStyleable, PaddingStyleable]);
+applyMixins(FlexContainerWidget, [BoxShadow, Colorable, Measurable, BorderStyleable, ContainerStyleable, PaddingStyleable]);

@@ -115,7 +115,8 @@ export class HtmlResolverService {
       border: '1px solid #000000',
       borderRadius: '0px',
       backgroundColor: '#ffffff',
-      color: '#000000'
+      color: '#000000',
+      boxShadow: '0px 0px 0px 0px #000000'
     }, element)
   }
  }
