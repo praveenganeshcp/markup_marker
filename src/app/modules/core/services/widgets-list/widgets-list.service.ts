@@ -12,10 +12,16 @@ export class WidgetsListService {
   getWidgetsList() {
     return [
         this.createTextWidgets(),
+        this.createButtonWidgets(),
         this.createContainerWidgets(),
         this.createInputWidgets(),
         this.createIconWidgets(),
       ]
+  }
+
+  private createButtonWidgets() {
+    return new WidgetGroup('Buttons')
+    .addElement(new WidgetElement('Button', 'BUTTON', {}))
   }
 
   private createTextWidgets() {

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IconWidget } from '../../widgets';
+import { ButtonWidget } from '../../widgets/button';
 import { FlexContainerWidget } from '../../widgets/flex-container';
 import { LargeHeadingWidget } from '../../widgets/large-heading';
 import { SmallHeadingWidget } from '../../widgets/small-heading';
@@ -38,6 +39,9 @@ export class WidgetResolverService {
     }
     else if(tagName === 'SMALL') {
       return new SmallTextWidget(element);
+    }
+    else if(tagName === 'BUTTON') {
+      return new ButtonWidget(element);
     }
     throw new Error('Widget not added for '+tagName);
   }

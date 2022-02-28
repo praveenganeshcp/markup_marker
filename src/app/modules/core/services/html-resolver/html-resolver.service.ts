@@ -44,11 +44,33 @@ export class HtmlResolverService {
         this.setSmallTextStyles(element);
         break;
       }
+      case 'BUTTON': {
+        this.setDefaultButtonStyles(element);
+        break;
+      }
       default: {
         throw new Error('Element not added in html resolver')
       }
     }
     return element;
+  }
+
+  private setDefaultButtonStyles(element: HTMLElement) {
+    this.applyStyles({
+      paddingLeft : '0%',
+      paddingRight: '0%',
+      paddingTop: '0%',
+      paddingBottom: '0%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-evenly',
+      width: '10%',
+      height: '5%',
+      border: '1px solid #000000',
+      borderRadius: '0px',
+      color: '#000000',
+      backgroundColor: '#ffffff'
+    }, element)
   }
 
   private setSmallTextStyles(element: HTMLElement) {
@@ -107,7 +129,7 @@ export class HtmlResolverService {
 
   private setSpanProps(element: HTMLElement) {
     this.applyStyles({
-      fontSize:'5em',
+      fontSize:'2em',
       fontWeight: 'lighter',
       color: '#000000',
       backgroundColor: '#ffffff'
