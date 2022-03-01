@@ -4,8 +4,8 @@
 
 ## Build minimal wireframes and generate HTML, CSS code on the fly for your frontend components
 
-Provides simple UI with predefined HTML widgets to build minimal wireframes and generates code for the created wireframe.
+Provides simple and user friendly UI to create wireframes using the prebuild widgets, edit styles, and generate code
 
 
-> Currently supported widgets:  _Flex-container, Large Heading, Small Heading, Input, Material Icons_
+> Currently supported widgets:  _Flex-container, Large Heading, Small Heading, Small Text, Text Input, Buttons, Header, Footer, Material Icons_
 
