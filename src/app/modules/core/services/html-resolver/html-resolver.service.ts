@@ -45,7 +45,17 @@ export class HtmlResolverService {
         break;
       }
       case 'BUTTON': {
-        this.setDefaultButtonStyles(element);
+        if(className === 'primary') {
+          this.setPrimaryButtonStyles(element);
+          element.classList.remove(className);
+        }
+        else if(className === 'warning') {
+          this.setWarningButtonStyles(element);
+          element.classList.remove(className);
+        }
+        else {
+          this.setDefaultButtonStyles(element);
+        }
         break;
       }
       case 'HEADER': {
@@ -65,6 +75,44 @@ export class HtmlResolverService {
       }
     }
     return element;
+  }
+
+  setPrimaryButtonStyles(element: HTMLElement) {
+    this.applyStyles({
+      paddingLeft : '0%',
+      paddingRight: '0%',
+      paddingTop: '0%',
+      paddingBottom: '0%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-evenly',
+      width: '10%',
+      height: '5%',
+      border: '1px solid #4169E1',
+      borderRadius: '0px',
+      color: '#000000',
+      backgroundColor: '#4169E1',
+      boxShadow: '0px 0px 0px 0px #000000',
+    }, element)
+  }
+
+  setWarningButtonStyles(element: HTMLElement) {
+    this.applyStyles({
+      paddingLeft : '0%',
+      paddingRight: '0%',
+      paddingTop: '0%',
+      paddingBottom: '0%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-evenly',
+      width: '10%',
+      height: '5%',
+      border: '1px solid #FF0000',
+      borderRadius: '0px',
+      color: '#000000',
+      backgroundColor: '#FF0000',
+      boxShadow: '0px 0px 0px 0px #000000',
+    }, element)
   }
 
   setRootElementStyles(element: HTMLElement) {

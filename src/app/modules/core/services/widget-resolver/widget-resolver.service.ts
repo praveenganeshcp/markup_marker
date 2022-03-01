@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { FlexContainerWidget, IconWidget } from '../../widgets';
 import { ButtonWidget } from '../../widgets/buttons/button';
+import { PrimaryButtonWidget } from '../../widgets/buttons/primary';
+import { WarningButtonWidget } from '../../widgets/buttons/warning';
 import { FooterWidget } from '../../widgets/container/footer';
 import { HeaderWidget } from '../../widgets/container/header';
 import { NavBarWidget } from '../../widgets/container/nav-bar';
@@ -43,7 +45,16 @@ export class WidgetResolverService {
       return new SmallTextWidget(element);
     }
     else if(tagName === 'BUTTON') {
-      return new ButtonWidget(element);
+      const backgroundColor = element.style.backgroundColor;
+      if(backgroundColor === 'rgb(65, 105, 225)') {
+        return new PrimaryButtonWidget(element);
+      }
+      else if(backgroundColor === 'rgb(255, 0, 0)') {
+        return new WarningButtonWidget(element);
+      }
+      else {
+        return new ButtonWidget(element);
+      }
     }
     else if(tagName === 'NAV') {
       return new NavBarWidget(element);

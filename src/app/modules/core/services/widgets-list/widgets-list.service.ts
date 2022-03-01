@@ -22,13 +22,15 @@ export class WidgetsListService {
   private createButtonWidgets() {
     return new WidgetGroup('Buttons')
     .addElement(new WidgetElement('Button', 'BUTTON', {}))
+    .addElement(new WidgetElement('Primary', 'BUTTON', {}, 'primary'))
+    .addElement(new WidgetElement('Warning', 'BUTTON', {}, 'warning'))
   }
 
   private createTextWidgets() {
     return new WidgetGroup('Text')
     .addElement(new WidgetElement('Large Heading', 'H1', {innerText: 'Hello world'}))
     .addElement(new WidgetElement('Small Heading', 'H3', {innerText: 'Hello world'}))
-    .addElement(new WidgetElement('Small Text', 'SMALL', {innerHTML: 'Click me !'}))
+    .addElement(new WidgetElement('Small Text', 'SMALL', {innerHTML: 'Hello world'}))
   }
 
   private createIconWidgets() {
