@@ -48,11 +48,67 @@ export class HtmlResolverService {
         this.setDefaultButtonStyles(element);
         break;
       }
+      case 'HEADER': {
+        this.setHeaderAndFooterStyles(element);
+        break;
+      }
+      case 'FOOTER': {
+        this.setHeaderAndFooterStyles(element);
+        break;
+      }
+      case 'NAV': {
+        this.setNavbarStyles(element);
+        break;
+      }
       default: {
         throw new Error('Element not added in html resolver')
       }
     }
     return element;
+  }
+
+  setRootElementStyles(element: HTMLElement) {
+    this.setSectionProps(element);
+    element.style.height = '100%';
+    element.style.width = '100%';
+  }
+
+  private setNavbarStyles(element: HTMLElement) {
+    this.applyStyles({
+      paddingLeft : '0%',
+      paddingRight: '0%',
+      paddingTop: '0%',
+      paddingBottom: '0%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-evenly',
+      width: '50%',
+      height: '50%',
+      border: '1px solid #000000',
+      borderRadius: '0px',
+      backgroundColor: '#ffffff',
+      color: '#000000',
+      boxShadow: '0px 0px 0px 0px #000000'
+    }, element)
+  }
+
+  private setHeaderAndFooterStyles(element: HTMLElement) {
+    this.applyStyles({
+      paddingLeft : '0%',
+      paddingRight: '0%',
+      paddingTop: '0%',
+      paddingBottom: '0%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-evenly',
+      width: '50%',
+      height: '10%',
+      border: '1px solid #000000',
+      borderRadius: '0px',
+      backgroundColor: '#ffffff',
+      color: '#000000',
+      boxShadow: '0px 0px 0px 0px #000000'
+    }, element)
   }
 
   private setDefaultButtonStyles(element: HTMLElement) {
@@ -144,7 +200,7 @@ export class HtmlResolverService {
       paddingTop: '0%',
       paddingBottom: '0%',
       display: 'flex',
-      alignItems: 'center',
+      alignItems: 'flex-start',
       justifyContent: 'space-evenly',
       width: '50%',
       height: '50%',
@@ -152,6 +208,7 @@ export class HtmlResolverService {
       borderRadius: '0px',
       backgroundColor: '#ffffff',
       color: '#000000',
+      flexWrap: 'wrap',
       boxShadow: '0px 0px 0px 0px #000000'
     }, element)
   }

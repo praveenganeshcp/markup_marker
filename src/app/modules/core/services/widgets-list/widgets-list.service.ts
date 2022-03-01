@@ -42,6 +42,9 @@ export class WidgetsListService {
   private createContainerWidgets() {
     return new WidgetGroup('Container')
     .addElement(new WidgetElement('Flex container', 'SECTION', {}))
+    .addElement(new WidgetElement('Header', 'HEADER', {}))
+    .addElement(new WidgetElement('Footer', 'FOOTER', {}))
+    .addElement(new WidgetElement('Navigation Bar', 'NAV', {}))
   }
 
   private createInputWidgets() {

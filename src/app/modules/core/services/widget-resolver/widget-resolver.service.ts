@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { FlexContainerWidget, IconWidget } from '../../widgets';
 import { ButtonWidget } from '../../widgets/buttons/button';
+import { FooterWidget } from '../../widgets/container/footer';
+import { HeaderWidget } from '../../widgets/container/header';
+import { NavBarWidget } from '../../widgets/container/nav-bar';
 import { TextInputWidget } from '../../widgets/input/text-input';
 import { LargeHeadingWidget } from '../../widgets/text/large-heading';
 import { SmallHeadingWidget } from '../../widgets/text/small-heading';
@@ -41,6 +44,15 @@ export class WidgetResolverService {
     }
     else if(tagName === 'BUTTON') {
       return new ButtonWidget(element);
+    }
+    else if(tagName === 'NAV') {
+      return new NavBarWidget(element);
+    }
+    else if(tagName === 'HEADER') {
+      return new HeaderWidget(element);
+    }
+    else if(tagName === 'FOOTER') {
+      return new FooterWidget(element);
     }
     throw new Error('Widget not added for '+tagName);
   }

@@ -8,6 +8,7 @@ import htmlFormatter from 'pretty';
 import cssFormatter from 'cssbeautify';
 import { ViewCodeComponent } from '../../components/view-code/view-code.component';
 import { HelpBannerComponent } from '../../components/help-banner/help-banner.component';
+import { HtmlResolverService } from '../../services/html-resolver/html-resolver.service';
 
 @Component({
   selector: 'app-builder',
@@ -21,7 +22,7 @@ export class BuilderComponent implements OnInit, AfterViewInit {
   @ViewChild('builderRoot', {read: ElementRef}) private builderRoot: ElementRef;
   @ViewChild('builderRootParent', {read: ElementRef}) private builderRootParent: ElementRef;
   
-  constructor(private widgetResolver: WidgetResolverService, private contextMenuService: ContextMenuService, private dialogService: DialogService) { 
+  constructor(private htmlResolver: HtmlResolverService, private widgetResolver: WidgetResolverService, private contextMenuService: ContextMenuService, private dialogService: DialogService) { 
     this.setSelectedWidget(null);
     this.setEditWidget(null);
   }
@@ -29,11 +30,12 @@ export class BuilderComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-      this.builderRoot.nativeElement.click();
-      this.dialogService.open(HelpBannerComponent, 60, 60, {
-          data: {},
-          isClosable: true
-      })
+    this.htmlResolver.setRootElementStyles(this.builderRoot.nativeElement);
+    this.builderRoot.nativeElement.click();
+    this.dialogService.open(HelpBannerComponent, 60, 60, {
+        data: {},
+        isClosable: true
+    })
   }
 
   getBuilderRoot() {

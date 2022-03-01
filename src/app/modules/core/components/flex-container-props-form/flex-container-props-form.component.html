@@ -1,13 +1,13 @@
 <section class="edit-props-form">
     <details class="widgets__groups">
-        <summary>Flex Container</summary>
+        <summary>Flex Alignment</summary>
         <section [formGroup]="getStyleForm()" class="edit-props-form__fields flex start">
             <section class="edit-props-form__select-field ">
-                <p>Alignment</p>
+                <p>Align</p>
                 <select formControlName="alignItems">
-                    <option value="start">start</option>
-                    <option>center</option>
-                    <option>end</option>
+                    <option value="flex-start">Flex start</option>
+                    <option value="center">center</option>
+                    <option value="flex-end">Flex-end</option>
                 </select>
             </section>
             <section class="edit-props-form__select-field ">
