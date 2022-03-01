@@ -69,7 +69,8 @@ export class HtmlResolverService {
       border: '1px solid #000000',
       borderRadius: '0px',
       color: '#000000',
-      backgroundColor: '#ffffff'
+      backgroundColor: '#ffffff',
+      boxShadow: '0px 0px 0px 0px #000000',
     }, element)
   }
 
