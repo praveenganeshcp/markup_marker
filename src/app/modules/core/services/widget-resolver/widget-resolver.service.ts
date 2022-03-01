@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-import { IconWidget } from '../../widgets';
-import { ButtonWidget } from '../../widgets/button';
-import { FlexContainerWidget } from '../../widgets/flex-container';
-import { LargeHeadingWidget } from '../../widgets/large-heading';
-import { SmallHeadingWidget } from '../../widgets/small-heading';
-import { SmallTextWidget } from '../../widgets/small-text';
-import { TextInputWidget } from '../../widgets/text-input';
+import { FlexContainerWidget, IconWidget } from '../../widgets';
+import { ButtonWidget } from '../../widgets/buttons/button';
+import { TextInputWidget } from '../../widgets/input/text-input';
+import { LargeHeadingWidget } from '../../widgets/text/large-heading';
+import { SmallHeadingWidget } from '../../widgets/text/small-heading';
+import { SmallTextWidget } from '../../widgets/text/small-text';
 import { Widget } from '../../widgets/widget';
 
 @Injectable({

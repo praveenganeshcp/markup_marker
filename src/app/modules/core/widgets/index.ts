@@ -1,4 +1,4 @@
-export { FlexContainerWidget } from './flex-container';
-export { IconWidget } from './icon';
-export { LargeHeadingWidget } from './large-heading';
-export { SmallHeadingWidget } from './small-heading';
+export { FlexContainerWidget } from './container/flex-container';
+export { IconWidget } from './icons/icon';
+export { LargeHeadingWidget } from './text/large-heading';
+export { SmallHeadingWidget } from './text/small-heading';
