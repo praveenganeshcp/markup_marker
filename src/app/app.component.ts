@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, ViewChild, ViewContainerRef } from '@angular/core';
+import { AppService } from './app.service';
 import { ContextMenuService } from './modules/shared/services/context-menu/context-menu.service';
 import { DialogService } from './modules/shared/services/dialog/dialog.service';
 
@@ -16,7 +17,7 @@ export class AppComponent implements AfterViewInit {
   @ViewChild('dialogRootHost', {read: ElementRef}) dialogRootHost: ElementRef;
 
 
-  constructor(private contextMenuService: ContextMenuService, private dialogService: DialogService) { }
+  constructor(private appService: AppService, private contextMenuService: ContextMenuService, private dialogService: DialogService) { }
 
   ngAfterViewInit(): void {
     this.contextMenuService.setHost(this.contextMenuHost.nativeElement);
@@ -24,6 +25,9 @@ export class AppComponent implements AfterViewInit {
     this.dialogService.setRootHost(this.dialogRootHost.nativeElement);
     this.dialogService.setHost(this.dialogHost.nativeElement);
     this.dialogService.setRef(this.dialogContainer);
+    const params = new URLSearchParams(location.search);
+    const source = params.get('source');
+    this.appService.analytics(source).subscribe(console.log, console.error);
   }
 
   closeContextMenu() {
