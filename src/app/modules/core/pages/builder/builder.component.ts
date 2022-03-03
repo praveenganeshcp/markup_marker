@@ -9,6 +9,7 @@ import cssFormatter from 'cssbeautify';
 import { ViewCodeComponent } from '../../components/view-code/view-code.component';
 import { HelpBannerComponent } from '../../components/help-banner/help-banner.component';
 import { HtmlResolverService } from '../../services/html-resolver/html-resolver.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-builder',
@@ -22,7 +23,7 @@ export class BuilderComponent implements OnInit, AfterViewInit {
   @ViewChild('builderRoot', {read: ElementRef}) private builderRoot: ElementRef;
   @ViewChild('builderRootParent', {read: ElementRef}) private builderRootParent: ElementRef;
   
-  constructor(private htmlResolver: HtmlResolverService, private widgetResolver: WidgetResolverService, private contextMenuService: ContextMenuService, private dialogService: DialogService) { 
+  constructor(private toast: ToastrService, private htmlResolver: HtmlResolverService, private widgetResolver: WidgetResolverService, private contextMenuService: ContextMenuService, private dialogService: DialogService) { 
     this.setSelectedWidget(null);
     this.setEditWidget(null);
   }
@@ -46,7 +47,7 @@ export class BuilderComponent implements OnInit, AfterViewInit {
     return this.builderRootParent;
   }
 
-  setSelectedWidget(element: Widget) {
+  setSelectedWidget(element: Widget | null) {
     this.selectedWidget?.removeOutline();
     this.editWidget?.removeOutline();
     this.selectedWidget = element;
@@ -71,7 +72,14 @@ export class BuilderComponent implements OnInit, AfterViewInit {
   }
 
   createWidget(element: HTMLElement) {
-    this.getSelectedWidget().appendChild(element);
+    const parentWidget = this.getSelectedWidget();
+    if(parentWidget == null) {
+      this.toast.warning('Choose the parent widget');
+      return; 
+    }
+    else {
+      parentWidget.appendChild(element);
+    }
   }
 
   onWidgetSelect(event) {
@@ -94,6 +102,12 @@ export class BuilderComponent implements OnInit, AfterViewInit {
           widget.copy();
         }
         else if(userChoice === 'delete') {
+          if(event.target === this.getSelectedWidget()?.getElement()) {
+            this.setSelectedWidget(null);
+          }
+          if(event.target === this.getEditWidget()?.getElement()) {
+            this.setEditWidget(null);
+          }
           widget.delete();
         }
         else if(userChoice === 'edit') {
